@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37614.0 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VttLesson01", "VttLesson01.csproj", "{3476C440-6D03-4C6C-A057-1C20BD1A591F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VttLesson01MVC", "..\VttLesson01MVC\VttLesson01MVC.csproj", "{126F1F24-4C3D-4200-9C42-9A7082F75E8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3476C440-6D03-4C6C-A057-1C20BD1A591F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3476C440-6D03-4C6C-A057-1C20BD1A591F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3476C440-6D03-4C6C-A057-1C20BD1A591F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3476C440-6D03-4C6C-A057-1C20BD1A591F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{126F1F24-4C3D-4200-9C42-9A7082F75E8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{126F1F24-4C3D-4200-9C42-9A7082F75E8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{126F1F24-4C3D-4200-9C42-9A7082F75E8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{126F1F24-4C3D-4200-9C42-9A7082F75E8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CAC483F0-0FD9-49EC-8296-FF1457ED5C09}
+	EndGlobalSection
+EndGlobal

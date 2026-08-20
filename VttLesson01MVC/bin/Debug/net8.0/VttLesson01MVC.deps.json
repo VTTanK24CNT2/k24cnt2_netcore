@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "VttLesson01MVC/1.0.0": {
+        "runtime": {
+          "VttLesson01MVC.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "VttLesson01MVC/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
