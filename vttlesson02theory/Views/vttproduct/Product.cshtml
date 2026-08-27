@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Thông Tin Sản Phẩm";
+}
+
+@{
+    vttproduct product = ViewData["product"] as vttlesson02theory.Models.vttproduct;
+}
+<h1>@ViewData["Title"]</h1>
+<div class= "alert alert-danger">
+    <h2>Dữ liệu lấy từ ViewData</h2>
+    <p>Mã sản phẩm: @product.ProductID </p>
+    <p>Tên sản phẩm: @product.ProductName</p>
+    <p>Năm SX: @product.YearRelease</p>
+    <p>Giá: @product.Price</p>
+</div>
+
+<div class="alert alert-info">
+    <h2>Dữ liệu lấy từ ViewBag</h2>
+    <p>Mã sản phẩm: @ViewBag.product.ProductID </p>
+    <p>Tên sản phẩm: @ViewBag.product.ProductName</p>
+    <p>Năm SX: @ViewBag.product.YearRelease</p>
+    <p>Giá: @ViewBag.product.Price</p>
+</div>

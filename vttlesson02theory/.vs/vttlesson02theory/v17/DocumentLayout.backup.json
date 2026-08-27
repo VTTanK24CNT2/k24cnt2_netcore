@@ -1,0 +1,105 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{043BF8DF-6543-4DD4-816E-F702D30C1FE1}|vttlesson02theory.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\controllers\\vttproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{043BF8DF-6543-4DD4-816E-F702D30C1FE1}|vttlesson02theory.csproj|solutionrelative:controllers\\vttproductcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{043BF8DF-6543-4DD4-816E-F702D30C1FE1}|vttlesson02theory.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\views\\vttproduct\\vttindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{043BF8DF-6543-4DD4-816E-F702D30C1FE1}|vttlesson02theory.csproj|solutionrelative:views\\vttproduct\\vttindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{043BF8DF-6543-4DD4-816E-F702D30C1FE1}|vttlesson02theory.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{043BF8DF-6543-4DD4-816E-F702D30C1FE1}|vttlesson02theory.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{043BF8DF-6543-4DD4-816E-F702D30C1FE1}|vttlesson02theory.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\views\\vttproduct\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{043BF8DF-6543-4DD4-816E-F702D30C1FE1}|vttlesson02theory.csproj|solutionrelative:views\\vttproduct\\product.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{043BF8DF-6543-4DD4-816E-F702D30C1FE1}|vttlesson02theory.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\models\\vttproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{043BF8DF-6543-4DD4-816E-F702D30C1FE1}|vttlesson02theory.csproj|solutionrelative:models\\vttproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "vttproduct.cs",
+              "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Models\\vttproduct.cs",
+              "RelativeDocumentMoniker": "Models\\vttproduct.cs",
+              "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Models\\vttproduct.cs",
+              "RelativeToolTip": "Models\\vttproduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-27T02:07:54.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Product.cshtml",
+              "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Views\\vttproduct\\Product.cshtml",
+              "RelativeDocumentMoniker": "Views\\vttproduct\\Product.cshtml",
+              "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Views\\vttproduct\\Product.cshtml",
+              "RelativeToolTip": "Views\\vttproduct\\Product.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-27T01:53:41.808Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB0AAAB/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-27T01:43:05.891Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VttIndex.cshtml",
+              "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Views\\vttproduct\\VttIndex.cshtml",
+              "RelativeDocumentMoniker": "Views\\vttproduct\\VttIndex.cshtml",
+              "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Views\\vttproduct\\VttIndex.cshtml",
+              "RelativeToolTip": "Views\\vttproduct\\VttIndex.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-08-27T01:36:38.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "vttproductController.cs",
+              "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Controllers\\vttproductController.cs",
+              "RelativeDocumentMoniker": "Controllers\\vttproductController.cs",
+              "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Controllers\\vttproductController.cs*",
+              "RelativeToolTip": "Controllers\\vttproductController.cs*",
+              "ViewState": "AgIAAAYAAABAjr6r83QjwBkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-27T01:34:22.385Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
