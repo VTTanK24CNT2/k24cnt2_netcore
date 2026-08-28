@@ -42,8 +42,7 @@
               "RelativeToolTip": "Models\\vttproduct.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-27T02:07:54.832Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-27T02:07:54.832Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "Views\\vttproduct\\Product.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-27T01:53:41.808Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-27T01:53:41.808Z"
             },
             {
               "$type": "Document",
@@ -68,8 +66,7 @@
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAAB0AAAB/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-27T01:43:05.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-27T01:43:05.891Z"
             },
             {
               "$type": "Document",
@@ -81,8 +78,7 @@
               "RelativeToolTip": "Views\\vttproduct\\VttIndex.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-08-27T01:36:38.79Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-08-27T01:36:38.79Z"
             },
             {
               "$type": "Document",
@@ -90,9 +86,9 @@
               "Title": "vttproductController.cs",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Controllers\\vttproductController.cs",
               "RelativeDocumentMoniker": "Controllers\\vttproductController.cs",
-              "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Controllers\\vttproductController.cs",
-              "RelativeToolTip": "Controllers\\vttproductController.cs",
-              "ViewState": "AgIAAAYAAABAjr6r83QjwCEAAAAFAAAAAAAAAA==",
+              "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson02theory\\Controllers\\vttproductController.cs*",
+              "RelativeToolTip": "Controllers\\vttproductController.cs*",
+              "ViewState": "AgIAAAYAAABAjr6r83QjwCEAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-08-27T01:34:22.385Z",
               "EditorCaption": ""
