@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Profile";
+    var profile = ViewBag.VttAccount as VttAccount;
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="border-1 p-2">
+            <img src="@profile.Avatar" alt="@profile.Name" class="w-100" />
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card p-5">
+            <h3> Full Name: @profile.Name </h3>
+            <p> Email: @profile.Email </p>
+            <p> Phone: @profile.Phone </p>
+            <p> Address: @profile.Address</p>
+            <p> Bio: @profile.Bio</p>
+            <p>
+                Gender:
+                @if (profile.Gender == 1)
+                {
+                    <text>Nam</text>
+                }
+                else
+                {
+                    <textarea>Nu</textarea>
+                }
+            </p>
+            <p>Brithday: @profile.Birthday</p>
+
+            <p>
+                <a asp-asp-controller="VttAccount" asp-action="VttIndex" class="btn btn-danger">
+                    Back to List
+                </a>
+            </p>
+        </div>
+    </div>
+
+</div>

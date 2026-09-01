@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Danh sách tài khoản";
+    var vttAccounts = ViewBag.VttAccounts;
+}
+
+<div class="row">
+    @foreach (VttAccount item in vttAccounts)
+    {
+        <div class="col-md-4 ">
+            <div class="card">
+                <div class="card-body">
+                    <div class="img">
+                        <img src="@item.Avatar" alt="@item.Name" />
+                    </div>
+                    <div class="">
+                        <h3> @item.Name </h3>
+                        <p> @item.Bio </p>
+                        <a asp-all-route="VttProfile" asp-route-id="@item.Id" class="btn btn-success btn-block"> Profile </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
