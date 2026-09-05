@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson04Lab\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\views\\vttaccount\\vttprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:views\\vttaccount\\vttprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\controllers\\vttaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:controllers\\vttaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\views\\vttaccount\\vttprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:views\\vttaccount\\vttprofile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\views\\vttaccount\\vttindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:views\\vttaccount\\vttindex.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\controllers\\vttaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:controllers\\vttaccountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\models\\vttaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:models\\vttaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\models\\vttaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:models\\vttaccount.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson04lab\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{6E35862B-3585-4BA8-9EB9-B8B705ACEBBD}|VttLesson04Lab.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +38,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson04Lab\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
@@ -55,33 +55,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson04Lab\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson04Lab\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAgwB4AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAgwB4AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-01T12:01:03.9Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "VttProfile.cshtml",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson04Lab\\Views\\VttAccount\\VttProfile.cshtml",
               "RelativeDocumentMoniker": "Views\\VttAccount\\VttProfile.cshtml",
               "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson04Lab\\Views\\VttAccount\\VttProfile.cshtml",
               "RelativeToolTip": "Views\\VttAccount\\VttProfile.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAIAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-09-01T11:56:16.068Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "site.css",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson04Lab\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
@@ -89,12 +89,11 @@
               "RelativeToolTip": "wwwroot\\css\\site.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-09-01T11:50:06.219Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-01T11:50:06.219Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "VttAccount.cs",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson04Lab\\Models\\VttAccount.cs",
               "RelativeDocumentMoniker": "Models\\VttAccount.cs",
@@ -120,13 +119,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "VttAccountController.cs",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson04Lab\\Controllers\\VttAccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\VttAccountController.cs",
               "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson04Lab\\Controllers\\VttAccountController.cs",
               "RelativeToolTip": "Controllers\\VttAccountController.cs",
-              "ViewState": "AgIAAEoAAAAAAAAAAAAQwGAAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAowGYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-09-01T11:05:54.679Z",
               "EditorCaption": ""

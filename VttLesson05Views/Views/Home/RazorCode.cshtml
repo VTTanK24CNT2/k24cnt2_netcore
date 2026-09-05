@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Cú Pháp Razor";
+
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr/>
+@{
+    var total = 76543;
+    var myMessage = "cháy nhà";
+}
+
+<p>Tài khoản của bạn: $ @total</p>
+<p>@myMessage</p>
+
+<h2>Cấu trúc if </h2>
+<hr/>
+    @if(total > 5000)
+    {
+        <p>Tôi là nhất</p>
+    }
+    else if (total > 2000)
+    {
+        <p>Bn gà lắm</p>
+    }
+    else
+    {
+        <p>yên bình có quá đắt ko</p>
+    }
+
+<h2>Cấu trúc lặp FOR (...)</h2>
+
+@for (int i = 0; i < 10; i++)
+{
+    if(i % 2 == 0)
+    {
+        <span class="btn btn-danger">@i</span>
+    }
+    else
+    {
+        <span class="btn btn-success">@i</span>
+    }
+}
+
+<h2>Mảng</h2>
+@{
+    string[] myArray = { "2rong.jpg", "4rong.jpg", "4.jpg", "lq.jpg", "MeoMeo.jpg", };
+}
+@foreach (var item in myArray)
+{
+    <img src="~/images/@item" width="150" height="150" />
+}
