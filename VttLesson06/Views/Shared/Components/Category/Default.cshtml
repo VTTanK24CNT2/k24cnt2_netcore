@@ -1,0 +1,8 @@
+﻿@model IEnumerable<VttLesson06.Models.Category>
+
+<div class="bg-danger" style="margin:1rem">
+    @foreach (var item in Model)
+    {
+        <li>@item.CategoryName</li>
+    }
+</div> 
