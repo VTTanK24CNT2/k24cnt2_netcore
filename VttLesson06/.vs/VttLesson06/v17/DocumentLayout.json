@@ -42,8 +42,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -90,8 +94,7 @@
               "RelativeToolTip": "Views\\Shared\\_VttFooterPartialView.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-09T04:53:43.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-09T04:53:43.432Z"
             },
             {
               "$type": "Document",
@@ -103,8 +106,7 @@
               "RelativeToolTip": "Views\\Shared\\_VttHeaderPartialView.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-09T04:48:09.79Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-09T04:48:09.79Z"
             },
             {
               "$type": "Document",
@@ -114,7 +116,7 @@
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson06\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-09-09T04:43:57.852Z",
               "EditorCaption": ""

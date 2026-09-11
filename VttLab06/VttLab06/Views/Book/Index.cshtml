@@ -1,0 +1,52 @@
+@model IEnumerable<VttLab06.Models.Book>
+@{
+    ViewData["Title"] = "Index";
+
+}
+<h2>Danh sách các tác phẩm</h2>
+<form action ="" method="POST" class="form-inline" role="form">
+    <div class="form-group">
+        <select name="VttAuthorId" class="form-control" asp-items="@ViewBag.authors">
+            <option value="">Chọn tác giả</option>
+        </select>
+        <select name="VttGenreId" class="form-control" asp-items="@ViewBag.genres">
+            <option value="">Chọn thể loại</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+    <a asp-action="Create" class="btn btn-danger">Thêm mới</a>
+</form>
+<hr/>
+<table class="table table-bordered">
+    <thead>
+        <th>Id</th>
+        <th>Tiêu đề</th>
+        <th>Tác giả</th>
+        <th>Thể loại</th>
+        <th>Giá</th>
+        <th>Hình ảnh</th>
+        <th></th>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td>@book.VttId</td>
+                    <td>@book.VttTitle</td>
+                    <td>@book.VttAuthorID</td>
+                    <td>@book.VttGenreId</td>
+                    <td>@book.VttPrice</td>
+                    <td>
+                        <img src="@book.VttImages" alt="@book.VttTitle" width="40" />
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@book.VttId" class="btn btn-sm btn-primary">Sửa</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>

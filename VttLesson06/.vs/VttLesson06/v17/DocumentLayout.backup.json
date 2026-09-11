@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson06\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson06\\views\\shared\\_vttfooterpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|solutionrelative:views\\shared\\_vttfooterpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson06\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson06\\views\\shared\\_vttheaderpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|solutionrelative:views\\shared\\_vttheaderpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson06\\views\\shared\\_vttfooterpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|solutionrelative:views\\shared\\_vttfooterpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson06\\views\\shared\\components\\category\\default.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -17,10 +21,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson06\\viewcomponents\\categoryviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|solutionrelative:viewcomponents\\categoryviewcomponent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson06\\views\\shared\\_vttheaderpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|solutionrelative:views\\shared\\_vttheaderpartialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E392C80A-BFE3-4323-AEB7-96007F09D5D0}|VttLesson06.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\vttlesson06\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,11 +42,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Default.cshtml",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson06\\Views\\Shared\\Components\\Category\\Default.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\Components\\Category\\Default.cshtml",
@@ -54,8 +54,7 @@
               "RelativeToolTip": "Views\\Shared\\Components\\Category\\Default.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-09T05:24:53.609Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-09T05:24:53.609Z"
             },
             {
               "$type": "Document",
@@ -67,12 +66,11 @@
               "RelativeToolTip": "Models\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-09T05:11:44.496Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-09T05:11:44.496Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "CategoryViewComponent.cs",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson06\\ViewComponents\\CategoryViewComponent.cs",
               "RelativeDocumentMoniker": "ViewComponents\\CategoryViewComponent.cs",
@@ -80,12 +78,11 @@
               "RelativeToolTip": "ViewComponents\\CategoryViewComponent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-09T05:06:55.716Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-09T05:06:55.716Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "_VttFooterPartialView.cshtml",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson06\\Views\\Shared\\_VttFooterPartialView.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_VttFooterPartialView.cshtml",
@@ -93,12 +90,11 @@
               "RelativeToolTip": "Views\\Shared\\_VttFooterPartialView.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-09T04:53:43.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-09T04:53:43.432Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "_VttHeaderPartialView.cshtml",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson06\\Views\\Shared\\_VttHeaderPartialView.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_VttHeaderPartialView.cshtml",
@@ -106,18 +102,17 @@
               "RelativeToolTip": "Views\\Shared\\_VttHeaderPartialView.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-09T04:48:09.79Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-09T04:48:09.79Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson06\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\VttLesson06\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-09-09T04:43:57.852Z",
               "EditorCaption": ""
@@ -132,8 +127,7 @@
               "RelativeToolTip": "Views\\Home\\About.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-09T04:37:01.219Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-09T04:37:01.219Z"
             },
             {
               "$type": "Document",
@@ -145,8 +139,11 @@
               "RelativeToolTip": "Controllers\\HomeController.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAA5wBQAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-09T04:35:07.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-09T04:35:07.95Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             }
           ]
         }
