@@ -1,0 +1,61 @@
+@model IEnumerable<VttLesson07Models.Models.DataModels.VttMember>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<div class="card p-3">
+    <h1>@ViewData["Title"]</h1>
+
+    <p>
+        <a asp-action="Create" class="btn btn-primary my-1">Thêm mới</a>
+    </p>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.VttMemberId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VttUserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VttPassword)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VttFullName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.VttEmail)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VttMemberId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VttUserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VttPassword)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VttFullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VttEmail)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.VttMemberId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.VttMemberId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.VttMemberId })
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

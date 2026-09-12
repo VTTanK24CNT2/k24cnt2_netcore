@@ -1,0 +1,23 @@
+@model VttLesson07Models.Models.DataModels.VttMember
+
+@{
+    ViewData["Title"] = "Thông tin member";
+    var member = (ViewBag.Member as VttLesson07Models.Models.DataModels.VttMember) ?? Model;
+}
+
+<div class="alert alert-info">
+    <h1>@ViewData["Title"]</h1>
+
+    @if (member != null)
+    {
+        <p>Member Id: @member.VttMemberId</p>
+        <p>UserName: @member.VttUserName</p>
+        <p>Password: @member.VttPassword</p>
+        <p>FullName: @member.VttFullName</p>
+        <p>Email: @member.VttEmail</p>
+    }
+    else
+    {
+        <p class="text-danger">Không tìm thấy thông tin member!</p>
+    }
+</div>

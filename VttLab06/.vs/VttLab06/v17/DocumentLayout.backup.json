@@ -71,8 +71,7 @@
               "RelativeToolTip": "VttLab06\\Views\\Shared\\My_layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-11T16:10:55.276Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-11T16:10:55.276Z"
             },
             {
               "$type": "Document",
@@ -84,8 +83,7 @@
               "RelativeToolTip": "VttLab06\\Views\\Shared\\Banner.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-11T15:42:56.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-11T15:42:56.224Z"
             },
             {
               "$type": "Document",
@@ -97,8 +95,7 @@
               "RelativeToolTip": "VttLab06\\Views\\Home\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-11T15:35:25.881Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-11T15:35:25.881Z"
             },
             {
               "$type": "Document",
@@ -110,8 +107,7 @@
               "RelativeToolTip": "VttLab06\\Views\\Book\\Edit.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAC0AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-11T08:10:44.972Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-11T08:10:44.972Z"
             },
             {
               "$type": "Document",
@@ -123,8 +119,7 @@
               "RelativeToolTip": "VttLab06\\Views\\Book\\Index.cshtml",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-10T18:22:40.39Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-10T18:22:40.39Z"
             },
             {
               "$type": "Document",
@@ -136,8 +131,7 @@
               "RelativeToolTip": "VttLab06\\Views\\Book\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-11T07:33:35.376Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-11T07:33:35.376Z"
             },
             {
               "$type": "Document",
@@ -149,8 +143,7 @@
               "RelativeToolTip": "VttLab06\\Models\\Book.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-10T17:22:02.125Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-10T17:22:02.125Z"
             },
             {
               "$type": "Document",
@@ -162,8 +155,7 @@
               "RelativeToolTip": "VttLab06\\Controllers\\BookController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-11T15:24:48.643Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-11T15:24:48.643Z"
             }
           ]
         }
