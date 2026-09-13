@@ -27,5 +27,11 @@ namespace VttLab06.Controllers
             Book model = book.GetBookById(id); 
             return View(model);
         }
+        public IActionResult PopularBook()
+        {
+            var books = book.GetBookList();
+            return PartialView("PopularBook", books);
+        }
+
     }
 }

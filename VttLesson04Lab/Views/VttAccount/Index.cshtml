@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Danh sách tài khoản";
+    var vttAccounts = ViewBag.VttAccounts;
+}
+
+<div class="py-3">
+    <h2 class="text-center mb-4 text-primary fw-bold">Danh Sách Tài Khoản</h2>
+    <div class="row g-4">
+        @if (vttAccounts != null)
+        {
+            @foreach (VttAccount item in vttAccounts)
+            {
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 account-card shadow-sm text-center">
+                        <div class="card-body d-flex flex-column p-4">
+                            <div class="mb-3">
+                                <img src="@item.Avatar" alt="@item.Name" class="account-avatar" />
+                            </div>
+                            <h4 class="card-title fw-bold text-dark">@item.Name</h4>
+                            <p class="card-text text-muted flex-grow-1">@item.Bio</p>
+                            <div class="mt-3">
+                                <a asp-route="Vttprofile" asp-route-id="@item.Id" class="btn btn-success w-100">
+                                    Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

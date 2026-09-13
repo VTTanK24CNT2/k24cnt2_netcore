@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using VttLesson04Lab.Models;
 
 namespace VttLesson04Lab.Controllers
@@ -77,24 +77,23 @@ namespace VttLesson04Lab.Controllers
             ViewBag.VttAccounts = vttAccounts;
             return View();
         }
-        [Route("ho-so-cua-toi", Name = "Vttprofile")]
+
+        [Route("ho-so-cua-toi/{id?}", Name = "Vttprofile")]
         public IActionResult VttProfile(int? id)
         {
-            VttAccount vttAccount = new VttAccount
-            {
-                Id = 5,
-                Name = "Vũ Hoàng Nam",
-                Email = "vuhoangnam@gmail.com",
-                Phone = "0967890123",
-                Avatar = "/images/3.jpg",
-                Address = "Thành phố Hồ Chí Minh",
-                Bio = "Yêu thích bóng đá, công nghệ và lập trình .NET",
-                Gender = 1,
-                Birthday = new DateTime(2001, 11, 5)
-            };
-            if (vttAccount != null)
+            VttAccount? vttAccount = null;
 
-                 vttAccount = vttAccounts.FirstOrDefault(x => x.Id == id);
+            if (id.HasValue)
+            {
+                vttAccount = vttAccounts.FirstOrDefault(x => x.Id == id.Value);
+            }
+
+            // Nếu không truyền id hoặc không tìm thấy, mặc định lấy tài khoản số 5 (hoặc tài khoản đầu tiên)
+            if (vttAccount == null)
+            {
+                vttAccount = vttAccounts.FirstOrDefault(x => x.Id == 5) ?? vttAccounts.FirstOrDefault();
+            }
+
             ViewBag.VttAccount = vttAccount;
             return View();
         }

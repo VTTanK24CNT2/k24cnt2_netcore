@@ -26,9 +26,9 @@ D:\k24cnt2-net\k24cnt2_netcore\VttLesson04Lab\obj\Debug\net8.0\staticwebassets.b
 D:\k24cnt2-net\k24cnt2_netcore\VttLesson04Lab\obj\Debug\net8.0\staticwebassets.build.json.cache
 D:\k24cnt2-net\k24cnt2_netcore\VttLesson04Lab\obj\Debug\net8.0\staticwebassets.development.json
 D:\k24cnt2-net\k24cnt2_netcore\VttLesson04Lab\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-D:\k24cnt2-net\k24cnt2_netcore\VttLesson04Lab\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\k24cnt2-net\k24cnt2_netcore\VttLesson04Lab\obj\Debug\net8.0\VttLesson04Lab.dll
 D:\k24cnt2-net\k24cnt2_netcore\VttLesson04Lab\obj\Debug\net8.0\refint\VttLesson04Lab.dll
 D:\k24cnt2-net\k24cnt2_netcore\VttLesson04Lab\obj\Debug\net8.0\VttLesson04Lab.pdb
 D:\k24cnt2-net\k24cnt2_netcore\VttLesson04Lab\obj\Debug\net8.0\VttLesson04Lab.genruntimeconfig.cache
 D:\k24cnt2-net\k24cnt2_netcore\VttLesson04Lab\obj\Debug\net8.0\ref\VttLesson04Lab.dll
+D:\k24cnt2-net\k24cnt2_netcore\VttLesson04Lab\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

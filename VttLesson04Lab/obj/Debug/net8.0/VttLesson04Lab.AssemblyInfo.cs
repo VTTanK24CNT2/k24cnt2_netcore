@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VttLesson04Lab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8d8d42f6aaaed75366917327bdfb831531e8af3c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9f2de4e050289ec44938ad61a0a40515e21d5362")]
 [assembly: System.Reflection.AssemblyProductAttribute("VttLesson04Lab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VttLesson04Lab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

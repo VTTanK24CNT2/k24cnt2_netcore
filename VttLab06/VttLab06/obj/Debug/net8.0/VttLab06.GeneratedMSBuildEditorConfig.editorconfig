@@ -1,11 +1,14 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v8.0
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EntryPointFilePath = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = VttLab06
 build_property.RootNamespace = VttLab06
@@ -46,6 +49,14 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/k24cnt2-net/k24cnt2_netcore/VttLab06/VttLab06/Views/Shared/Banner.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEJhbm5lci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/k24cnt2-net/k24cnt2_netcore/VttLab06/VttLab06/Views/Shared/Components/Book/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcQm9va1xEZWZhdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/k24cnt2-net/k24cnt2_netcore/VttLab06/VttLab06/Views/Shared/Components/VttBook/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbXBvbmVudHNcVnR0Qm9va1xEZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/k24cnt2-net/k24cnt2_netcore/VttLab06/VttLab06/Views/Shared/Error.cshtml]

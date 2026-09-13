@@ -1,40 +1,49 @@
-﻿@{
+@{
     ViewData["Title"] = "Profile";
     var profile = ViewBag.VttAccount as VttAccount;
 }
 
-<div class="row">
-    <div class="col-md-4">
-        <div class="border-1 p-2">
-            <img src="@profile.Avatar" alt="@profile.Name" class="w-100" />
-        </div>
-    </div>
-    <div class="col-md-8">
-        <div class="card p-5">
-            <h3> Full Name: @profile.Name </h3>
-            <p> Email: @profile.Email </p>
-            <p> Phone: @profile.Phone </p>
-            <p> Address: @profile.Address</p>
-            <p> Bio: @profile.Bio</p>
-            <p>
-                Gender:
-                @if (profile.Gender == 1)
-                {
-                    <text>Nam</text>
-                }
-                else
-                {
-                    <textarea>Nu</textarea>
-                }
-            </p>
-            <p>Brithday: @profile.Birthday</p>
+<div class="py-3">
+    @if (profile != null)
+    {
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm p-3 profile-avatar-box text-center">
+                    <img src="@profile.Avatar" alt="@profile.Name" class="profile-avatar-img rounded" />
+                    <h4 class="fw-bold mt-3 mb-1 text-primary">@profile.Name</h4>
+                    <p class="text-muted mb-0">
+                        @(profile.Gender == 1 ? "Nam" : "Nữ")
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card shadow-sm p-4 h-100">
+                    <h3 class="fw-bold text-primary border-bottom pb-3 mb-3">Thông Tin Chi Tiết</h3>
+                    <p><strong>Họ và tên:</strong> @profile.Name</p>
+                    <p><strong>Email:</strong> @profile.Email</p>
+                    <p><strong>Số điện thoại:</strong> @profile.Phone</p>
+                    <p><strong>Địa chỉ:</strong> @profile.Address</p>
+                    <p><strong>Tiểu sử:</strong> @profile.Bio</p>
+                    <p>
+                        <strong>Giới tính:</strong>
+                        @if (profile.Gender == 1)
+                        {
+                            <span class="badge bg-primary">Nam</span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-danger">Nữ</span>
+                        }
+                    </p>
+                    <p><strong>Ngày sinh:</strong> @profile.Birthday.ToString("dd/MM/yyyy")</p>
 
-            <p>
-                <a asp-asp-controller="VttAccount" asp-action="VttIndex" class="btn btn-danger">
-                    Back to List
-                </a>
-            </p>
+                    <div class="mt-4 pt-3 border-top">
+                        <a asp-controller="VttAccount" asp-action="Index" class="btn btn-secondary">
+                            Back to List
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-
+    }
 </div>

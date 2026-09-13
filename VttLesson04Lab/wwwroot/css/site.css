@@ -20,3 +20,40 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/* Custom CSS cho Account Cards & Avatar cân đối */
+.account-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+}
+
+.account-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.account-avatar {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto 10px auto;
+  display: block;
+}
+
+.profile-avatar-box {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.profile-avatar-img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}

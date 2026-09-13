@@ -26,9 +26,9 @@ D:\k24cnt2-net\k24cnt2_netcore\VttLab06\VttLab06\obj\Debug\net8.0\staticwebasset
 D:\k24cnt2-net\k24cnt2_netcore\VttLab06\VttLab06\obj\Debug\net8.0\staticwebassets.build.json.cache
 D:\k24cnt2-net\k24cnt2_netcore\VttLab06\VttLab06\obj\Debug\net8.0\staticwebassets.development.json
 D:\k24cnt2-net\k24cnt2_netcore\VttLab06\VttLab06\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-D:\k24cnt2-net\k24cnt2_netcore\VttLab06\VttLab06\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\k24cnt2-net\k24cnt2_netcore\VttLab06\VttLab06\obj\Debug\net8.0\VttLab06.dll
 D:\k24cnt2-net\k24cnt2_netcore\VttLab06\VttLab06\obj\Debug\net8.0\refint\VttLab06.dll
 D:\k24cnt2-net\k24cnt2_netcore\VttLab06\VttLab06\obj\Debug\net8.0\VttLab06.pdb
 D:\k24cnt2-net\k24cnt2_netcore\VttLab06\VttLab06\obj\Debug\net8.0\VttLab06.genruntimeconfig.cache
 D:\k24cnt2-net\k24cnt2_netcore\VttLab06\VttLab06\obj\Debug\net8.0\ref\VttLab06.dll
+D:\k24cnt2-net\k24cnt2_netcore\VttLab06\VttLab06\obj\Debug\net8.0\swae.build.ex.cache
