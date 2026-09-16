@@ -1,0 +1,31 @@
+﻿﻿@model IEnumerable<Bt02VttModels.VttProducts>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3">
+            @await Component.InvokeAsync("VttCategory")
+        </div>
+
+        <div class="col-md-9">
+            <h3 class="mb-3">Danh sách sản phẩm</h3>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="@item.VttImages" class="card-img-top" alt="@item.VttName">
+                            <div class="card-body text-center">
+                                <h6 class="card-title">@item.VttName</h6>
+                                <p class="card-text mb-2">
+                                    <small class="text-muted"><del>Giá: @item.VttPrice.ToString("N0") đ</del></small><br />
+                                    <strong class="text-danger">Giá: @item.VttPriceSale?.ToString("N0") đ</strong>
+                                </p>
+                                <a asp-controller="VttProduct" asp-action="Details" asp-route-id="@item.VttId" class="btn btn-success btn-sm w-100">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+﻿
+@model IEnumerable<VttLesson08Models.Models.VttMember>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<div class="card p-3">
+    <div class="card-header">
+        <h1>@ViewData["Title"]</h1>
+        <a asp-action="VttCreate">Thêm mới</a>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VttMemberId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VttUserName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VttPassword)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VttFullName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.VttEmail)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VttMemberId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VttUserName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VttPassword)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VttFullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.VttEmail)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Sửa", "VttEdit", new { id = item.VttMemberId }) |
+                            @Html.ActionLink("Xem chi tiết", "VttDetails", new { id = item.VttMemberId }) |
+                            @Html.ActionLink("Xóa", "VttDelete", new { id = item.VttMemberId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

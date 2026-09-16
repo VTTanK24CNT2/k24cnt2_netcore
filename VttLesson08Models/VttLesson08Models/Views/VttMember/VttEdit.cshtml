@@ -1,0 +1,61 @@
+﻿
+@model VttLesson08Models.Models.VttMember
+
+@{
+    ViewData["Title"] = "Sửa thông tin thành viên";
+}
+
+<form asp-action="VttEdit" method="post">
+    <div class="card p-3">
+        <div class="card-header">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label asp-for="VttMemberId" class="control-label"></label>
+                        <input asp-for="VttMemberId" class="form-control" />
+                        <span asp-validation-for="VttMemberId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="VttUserName" class="control-label"></label>
+                        <input asp-for="VttUserName" class="form-control" />
+                        <span asp-validation-for="VttUserName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="VttPassword" class="control-label"></label>
+                        <input asp-for="VttPassword" class="form-control" />
+                        <span asp-validation-for="VttPassword" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="VttFullName" class="control-label"></label>
+                        <input asp-for="VttFullName" class="form-control" />
+                        <span asp-validation-for="VttFullName" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="VttEmail" class="control-label"></label>
+                        <input asp-for="VttEmail" class="form-control" />
+                        <span asp-validation-for="VttEmail" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="form-group">
+                <input type="submit" value="Cập nhật" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,34 @@
+﻿﻿@model VttBt02.Models.VttProduct
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container mt-4">
+    <a asp-action="Index" class="btn btn-secondary mb-3"> Quay lại danh sách</a>
+
+    <div class="row">
+        <div class="col-md-5">
+            <img src="@Model.VttImages" class="img-fluid rounded border" alt="@Model.VttName" />
+        </div>
+        <div class="col-md-7">
+            <h2>@Model.VttName</h2>
+            <hr />
+            <p class="fs-4">
+                <del class="text-muted fs-6">Giá cũ: @Model.VttPrice.ToString("N0") đ</del><br />
+                <strong class="text-danger">Giá khuyến mãi: @Model.VttPriceSale?.ToString("N0") đ</strong>
+            </p>
+            <p><strong>Mã sản phẩm (ID):</strong> @Model.VttId</p>
+            <p><strong>Mã danh mục:</strong> @Model.VttCategoryId</p>
+            <p><strong>Ngày tạo:</strong> @Model.VttCreatedAt?.ToString("dd/MM/yyyy HH:mm")</p>
+            <p><strong>Trạng thái:</strong> @(Model.VttStatus ? "Đang kinh doanh" : "Ngừng kinh doanh")</p>
+
+            <div class="alert alert-info mt-3">
+                <h5>Mô tả sản phẩm:</h5>
+                <p>@Model.VttDescription</p>
+            </div>
+
+            <button class="btn btn-primary btn-lg mt-2"> Thêm vào giỏ hàng</button>
+        </div>
+    </div>
+</div>

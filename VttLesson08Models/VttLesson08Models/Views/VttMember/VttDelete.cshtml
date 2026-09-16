@@ -1,0 +1,59 @@
+﻿
+@model VttLesson08Models.Models.VttMember
+
+@{
+    ViewData["Title"] = "VttDelete";
+}
+
+<h1>VttDelete</h1>
+
+<h3>Bạn có chắc chắn muốn xóa thành viên này?</h3>
+
+<div>
+    <h4>VttMember</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VttMemberId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VttMemberId)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VttUserName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VttUserName)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VttPassword)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VttPassword)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VttFullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VttFullName)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VttEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VttEmail)
+        </dd>
+    </dl>
+
+    <form asp-action="VttDeleted" method="post">
+        <input name="id" value="@Model.VttMemberId" type="hidden" />
+
+        <input type="submit" value="Xóa" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+    </form>
+</div>
