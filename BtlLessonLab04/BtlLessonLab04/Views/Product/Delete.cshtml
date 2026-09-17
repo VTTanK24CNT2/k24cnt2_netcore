@@ -1,0 +1,36 @@
+@model BtlLessonLab04.Models.Product
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+}
+
+<h3 class="text-danger">Bạn có chắc chắn muốn xóa sản phẩm này không?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Mã sản phẩm</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Tên sản phẩm</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
+
+        <dt class="col-sm-3">Danh mục</dt>
+        <dd class="col-sm-9">@ViewBag.CategoryName</dd>
+
+        <dt class="col-sm-3">Giá niêm yết</dt>
+        <dd class="col-sm-9">@Model.Price.ToString("#,##0 VNĐ")</dd>
+
+        <dt class="col-sm-3">Hình ảnh</dt>
+        <dd class="col-sm-9">
+            @if (!string.IsNullOrEmpty(Model.Image))
+            {
+                <img src="@Model.Image" style="width: 100px; height: auto;" class="img-thumbnail" />
+            }
+        </dd>
+    </dl>
+
+    <form asp-action="Delete" asp-route-id="@Model.Id">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Xóa ngay</button>
+        <a asp-action="Index" class="btn btn-secondary ms-2">Hủy bỏ</a>
+    </form>
+</div>

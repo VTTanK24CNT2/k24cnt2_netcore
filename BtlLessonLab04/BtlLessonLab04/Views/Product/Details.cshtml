@@ -1,0 +1,42 @@
+﻿@model BtlLessonLab04.Models.Product
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<h1>Chi tiết sản phẩm</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-3">Mã sản phẩm</dt>
+        <dd class="col-sm-9">@Model.Id</dd>
+
+        <dt class="col-sm-3">Tên sản phẩm</dt>
+        <dd class="col-sm-9">@Model.Name</dd>
+
+        <dt class="col-sm-3">Danh mục</dt>
+        <dd class="col-sm-9">@ViewBag.CategoryName</dd>
+
+        <dt class="col-sm-3">Giá niêm yết</dt>
+        <dd class="col-sm-9">@Model.Price.ToString("#,##0 VNĐ")</dd>
+
+        <dt class="col-sm-3">Giá khuyến mãi</dt>
+        <dd class="col-sm-9">@Model.SalePrice.ToString("#,##0 VNĐ")</dd>
+
+        <dt class="col-sm-3">Hình ảnh</dt>
+        <dd class="col-sm-9">
+            <img src="@Model.Image" style="width: 150px; height: auto;" class="img-thumbnail" />
+        </dd>
+
+        <dt class="col-sm-3">Trạng thái</dt>
+        <dd class="col-sm-9">@(Model.Status ? "Còn hàng" : "Hết hàng")</dd>
+
+        <dt class="col-sm-3">Mô tả</dt>
+        <dd class="col-sm-9">@Model.Description</dd>
+    </dl>
+</div>
+
+<div>
+    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.Id }, new { @class = "btn btn-primary" }) |
+    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+</div>
