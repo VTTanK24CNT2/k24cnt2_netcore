@@ -1,0 +1,54 @@
+@model BtLabLesson09.Models.Product
+
+@{
+    ViewData["Title"] = "Xác nhận xóa sản phẩm";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-7 col-md-9">
+            <div class="card border-danger shadow-sm">
+                <div class="card-header bg-danger text-white py-3">
+                    <h4 class="mb-0"><i class="bi bi-exclamation-triangle-fill"></i> Xác nhận xóa sản phẩm</h4>
+                </div>
+                <div class="card-body p-4">
+                    <p class="text-danger fw-bold fs-5">
+                        Bạn có chắc chắn muốn xóa sản phẩm này khỏi hệ thống không?
+                    </p>
+                    <div class="alert alert-warning">
+                        Hành động này sẽ xóa vĩnh viễn sản phẩm khỏi danh sách!
+                    </div>
+
+                    <dl class="row mb-4">
+                        <dt class="col-sm-4 text-muted">Mã sản phẩm:</dt>
+                        <dd class="col-sm-8 fw-bold">#@Model.Id</dd>
+
+                        <dt class="col-sm-4 text-muted">Tên sản phẩm:</dt>
+                        <dd class="col-sm-8 fw-bold">@Model.Name</dd>
+
+                        <dt class="col-sm-4 text-muted">Danh mục:</dt>
+                        <dd class="col-sm-8">@ViewBag.CategoryName</dd>
+
+                        <dt class="col-sm-4 text-muted">Giá gốc:</dt>
+                        <dd class="col-sm-8">@Model.Price.ToString("N0") đ</dd>
+
+                        <dt class="col-sm-4 text-muted">Giá khuyến mãi:</dt>
+                        <dd class="col-sm-8 text-danger fw-bold">@Model.SalePrice.ToString("N0") đ</dd>
+                    </dl>
+
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-circle"></i> Hủy bỏ
+                            </a>
+                            <button type="submit" class="btn btn-danger px-4">
+                                <i class="bi bi-trash"></i> Đồng ý xóa
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

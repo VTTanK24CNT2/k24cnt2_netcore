@@ -1,0 +1,3 @@
+D:\k24cnt2-net\k24cnt2_netcore\BtLabLesson09\BtLabLesson09\wwwroot\products\headphone.svg
+D:\k24cnt2-net\k24cnt2_netcore\BtLabLesson09\BtLabLesson09\wwwroot\products\laptop.svg
+D:\k24cnt2-net\k24cnt2_netcore\BtLabLesson09\BtLabLesson09\wwwroot\products\phone.svg

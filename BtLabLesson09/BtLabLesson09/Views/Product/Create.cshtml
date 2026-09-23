@@ -1,0 +1,100 @@
+@model BtLabLesson09.Models.Product
+
+@{
+    ViewData["Title"] = "Thêm mới sản phẩm";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-success text-white py-3">
+                    <h4 class="mb-0"><i class="bi bi-box-seam"></i> Thêm mới sản phẩm (Product Validation)</h4>
+                </div>
+                <div class="card-body p-4">
+                    <div class="alert alert-info py-2 small">
+                        <strong>Quy tắc ràng buộc (Validation Rules):</strong>
+                        <ul class="mb-0 ps-3">
+                            <li><strong>Tên sản phẩm</strong>: từ 6 đến 150 ký tự.</li>
+                            <li><strong>Giá gốc (Price)</strong>: tối thiểu 100,000 đ.</li>
+                            <li><strong>Giá khuyến mãi (SalePrice)</strong>: không âm, nhỏ hơn giá gốc và giảm tối đa 10% so với giá gốc.</li>
+                            <li><strong>Hình ảnh</strong>: phải chọn đúng thư mục  </li>
+                            <li><strong>Danh mục</strong>: bắt buộc chọn từ danh sách Category.</li>
+                            <li><strong>Mô tả</strong>: tối đa 1500 ký tự</li>
+                        </ul>
+                    </div>
+
+                    <form asp-action="Create" method="post" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <!-- Tên sản phẩm -->
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label fw-bold"></label>
+                            <input asp-for="Name" class="form-control" placeholder="Nhập tên sản phẩm (6 - 150 ký tự)" />
+                            <span asp-validation-for="Name" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Danh mục (Select / Combobox) -->
+                        <div class="mb-3">
+                            <label asp-for="CategoryId" class="form-label fw-bold"></label>
+                            <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId">
+                                <option value="">-- Chọn danh mục sản phẩm --</option>
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Giá & Giá khuyến mãi -->
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Price" class="form-label fw-bold"></label>
+                                <div class="input-group">
+                                    <input asp-for="Price" type="number" step="1000" class="form-control" placeholder="Tối thiểu 100000" />
+                                    <span class="input-group-text">VNĐ</span>
+                                </div>
+                                <span asp-validation-for="Price" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="SalePrice" class="form-label fw-bold"></label>
+                                <div class="input-group">
+                                    <input asp-for="SalePrice" type="number" step="1000" class="form-control" placeholder="Không âm & giảm tối đa 10%" />
+                                    <span class="input-group-text">VNĐ</span>
+                                </div>
+                                <span asp-validation-for="SalePrice" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <!-- Đường dẫn hình ảnh -->
+                        <div class="mb-3">
+                            <label asp-for="Image" class="form-label fw-bold"></label>
+                            <input asp-for="Image" class="form-control" placeholder="Ví dụ: /products/laptop.jpg hoặc /products/phone.jpg" />
+                            <div class="form-text text-muted">
+                            </div>
+                            <span asp-validation-for="Image" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Mô tả sản phẩm -->
+                        <div class="mb-4">
+                            <label asp-for="Description" class="form-label fw-bold"></label>
+                            <textarea asp-for="Description" rows="4" class="form-control" placeholder="Nhập mô tả sản phẩm"></textarea>
+                            <span asp-validation-for="Description" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left"></i> Quay lại danh sách
+                            </a>
+                            <button type="submit" class="btn btn-success px-4">
+                                <i class="bi bi-check-circle"></i> Lưu sản phẩm
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
