@@ -26,7 +26,12 @@ namespace BtlLessonLab04.Models
             new Product() {
                 Id = 3, Name = "SGK", Price = 490000, SalePrice = 53000,
                 Status = true, CreatedDate = DateTime.Now, Image = "/images/TiengViet.jpg",
-                CategoryId = 2, Description = "Tiếng Việt L1<tập 1>"
+                CategoryId = 3, Description = "Tiếng Việt L1<tập 1>"
+            },
+            new Product() {
+                Id = 4, Name = "Pháp luật", Price = 4090000, SalePrice = 93000,
+                Status = true, CreatedDate = DateTime.Now, Image = "/images/LuatHs.jpg",
+                CategoryId = 4, Description = "Luật pháp Việt Nam"
             }
         };
 

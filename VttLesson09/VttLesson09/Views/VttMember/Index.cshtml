@@ -1,0 +1,78 @@
+﻿
+@model IEnumerable<VttLesson09.Models.DataViewModels.VttMemberRegister>
+
+@{
+    ViewData["Title"] = "Danh sách thành viên";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VttMemberId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VttUserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VttPassWord)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VttEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VttPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VttFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VttBirthday)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VttMemberId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VttUserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VttPassWord)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VttEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VttPhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VttFullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VttBirthday)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.VttMemberId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.VttMemberId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.VttMemberId">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

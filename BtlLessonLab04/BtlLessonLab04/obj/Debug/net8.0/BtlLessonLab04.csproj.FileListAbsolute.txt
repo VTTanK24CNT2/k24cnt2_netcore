@@ -31,4 +31,4 @@ D:\k24cnt2-net\k24cnt2_netcore\BtlLessonLab04\BtlLessonLab04\obj\Debug\net8.0\re
 D:\k24cnt2-net\k24cnt2_netcore\BtlLessonLab04\BtlLessonLab04\obj\Debug\net8.0\BtlLessonLab04.pdb
 D:\k24cnt2-net\k24cnt2_netcore\BtlLessonLab04\BtlLessonLab04\obj\Debug\net8.0\BtlLessonLab04.genruntimeconfig.cache
 D:\k24cnt2-net\k24cnt2_netcore\BtlLessonLab04\BtlLessonLab04\obj\Debug\net8.0\ref\BtlLessonLab04.dll
-D:\k24cnt2-net\k24cnt2_netcore\BtlLessonLab04\BtlLessonLab04\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\k24cnt2-net\k24cnt2_netcore\BtlLessonLab04\BtlLessonLab04\obj\Debug\net8.0\swae.build.ex.cache
