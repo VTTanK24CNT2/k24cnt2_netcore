@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\k24cnt2-net\\k24cnt2_netcore\\BtLabLesson09\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{825D62D9-5A8F-4DCC-8D06-735F86E6EFED}|BtLabLesson09\\BtLabLesson09.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\btlablesson09\\btlablesson09\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{825D62D9-5A8F-4DCC-8D06-735F86E6EFED}|BtLabLesson09\\BtLabLesson09.csproj|solutionrelative:btlablesson09\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{825D62D9-5A8F-4DCC-8D06-735F86E6EFED}|BtLabLesson09\\BtLabLesson09.csproj|d:\\k24cnt2-net\\k24cnt2_netcore\\btlablesson09\\btlablesson09\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{825D62D9-5A8F-4DCC-8D06-735F86E6EFED}|BtLabLesson09\\BtLabLesson09.csproj|solutionrelative:btlablesson09\\views\\product\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -43,19 +47,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\BtLabLesson09\\BtLabLesson09\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "BtLabLesson09\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\BtLabLesson09\\BtLabLesson09\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "BtLabLesson09\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACIAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-09-24T02:00:41.656Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\BtLabLesson09\\BtLabLesson09\\Views\\Product\\Create.cshtml",
               "RelativeDocumentMoniker": "BtLabLesson09\\Views\\Product\\Create.cshtml",
               "ToolTip": "D:\\k24cnt2-net\\k24cnt2_netcore\\BtLabLesson09\\BtLabLesson09\\Views\\Product\\Create.cshtml",
               "RelativeToolTip": "BtLabLesson09\\Views\\Product\\Create.cshtml",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAABoAAABHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEgAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-09-23T12:59:28.626Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\BtLabLesson09\\BtLabLesson09\\Views\\Account\\Index.cshtml",
               "RelativeDocumentMoniker": "BtLabLesson09\\Views\\Account\\Index.cshtml",
@@ -63,12 +80,11 @@
               "RelativeToolTip": "BtLabLesson09\\Views\\Account\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-23T12:57:03.29Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-23T12:57:03.29Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Create.cshtml",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\BtLabLesson09\\BtLabLesson09\\Views\\Account\\Create.cshtml",
               "RelativeDocumentMoniker": "BtLabLesson09\\Views\\Account\\Create.cshtml",
@@ -76,12 +92,11 @@
               "RelativeToolTip": "BtLabLesson09\\Views\\Account\\Create.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-09-23T12:56:32.94Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-23T12:56:32.94Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Product.cs",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\BtLabLesson09\\BtLabLesson09\\Models\\Product.cs",
               "RelativeDocumentMoniker": "BtLabLesson09\\Models\\Product.cs",
@@ -89,12 +104,11 @@
               "RelativeToolTip": "BtLabLesson09\\Models\\Product.cs",
               "ViewState": "AgIAACoAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T12:56:12.08Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-23T12:56:12.08Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Account.cs",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\BtLabLesson09\\BtLabLesson09\\Models\\Account.cs",
               "RelativeDocumentMoniker": "BtLabLesson09\\Models\\Account.cs",
@@ -102,12 +116,11 @@
               "RelativeToolTip": "BtLabLesson09\\Models\\Account.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T12:55:51.041Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-23T12:55:51.041Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "ProductController.cs",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\BtLabLesson09\\BtLabLesson09\\Controllers\\ProductController.cs",
               "RelativeDocumentMoniker": "BtLabLesson09\\Controllers\\ProductController.cs",
@@ -115,12 +128,11 @@
               "RelativeToolTip": "BtLabLesson09\\Controllers\\ProductController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T12:54:13.765Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-23T12:54:13.765Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "AccountController.cs",
               "DocumentMoniker": "D:\\k24cnt2-net\\k24cnt2_netcore\\BtLabLesson09\\BtLabLesson09\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "BtLabLesson09\\Controllers\\AccountController.cs",
@@ -128,8 +140,7 @@
               "RelativeToolTip": "BtLabLesson09\\Controllers\\AccountController.cs",
               "ViewState": "AgIAAFwAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-09-23T12:53:40.977Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-23T12:53:40.977Z"
             }
           ]
         }

@@ -1,0 +1,108 @@
+@model VttLesson10EFDbFirst.Models.VttMember
+
+@{
+    ViewData["Title"] = "Chỉnh sửa Thành viên";
+}
+
+<div class="container py-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-7">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-warning bg-opacity-25 border-warning py-3">
+                    <h5 class="card-title mb-0 fw-bold text-dark">
+                        <i class="bi bi-pencil-square me-2"></i>Cập Nhật Thành Viên (#@Model.Id)
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Edit" method="post">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <!-- Khóa chính Id ẩn -->
+                        <input type="hidden" asp-for="Id" />
+
+                        <div class="row g-3">
+                            <!-- UserName -->
+                            <div class="col-md-6">
+                                <label asp-for="VttUserName" class="form-label fw-semibold"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                    <input asp-for="VttUserName" class="form-control" />
+                                </div>
+                                <span asp-validation-for="VttUserName" class="text-danger small"></span>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="col-md-6">
+                                <label asp-for="VttPassword" class="form-label fw-semibold"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                    <input asp-for="VttPassword" class="form-control" type="text" />
+                                </div>
+                                <span asp-validation-for="VttPassword" class="text-danger small"></span>
+                            </div>
+
+                            <!-- FullName -->
+                            <div class="col-12">
+                                <label asp-for="VttFullName" class="form-label fw-semibold"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-card-heading"></i></span>
+                                    <input asp-for="VttFullName" class="form-control" />
+                                </div>
+                                <span asp-validation-for="VttFullName" class="text-danger small"></span>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="col-md-6">
+                                <label asp-for="VttEmail" class="form-label fw-semibold"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                    <input asp-for="VttEmail" class="form-control" type="email" />
+                                </div>
+                                <span asp-validation-for="VttEmail" class="text-danger small"></span>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="col-md-6">
+                                <label asp-for="VttPhone" class="form-label fw-semibold"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-telephone"></i></span>
+                                    <input asp-for="VttPhone" class="form-control" />
+                                </div>
+                                <span asp-validation-for="VttPhone" class="text-danger small"></span>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="col-12">
+                                <label asp-for="VttStatus" class="form-label fw-semibold"></label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-shield-check"></i></span>
+                                    <select asp-for="VttStatus" class="form-select">
+                                        <option value="true">Hoạt động (Active)</option>
+                                        <option value="false">Tạm khóa (Inactive)</option>
+                                    </select>
+                                </div>
+                                <span asp-validation-for="VttStatus" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <hr class="my-4" />
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-arrow-left me-1"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-warning px-4 text-dark fw-bold">
+                                <i class="bi bi-floppy me-1"></i> Lưu thay đổi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

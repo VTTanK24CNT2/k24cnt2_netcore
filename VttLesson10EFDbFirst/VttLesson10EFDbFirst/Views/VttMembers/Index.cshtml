@@ -1,0 +1,163 @@
+@model IEnumerable<VttLesson10EFDbFirst.Models.VttMember>
+
+@{
+    ViewData["Title"] = "Danh sách Thành viên";
+}
+
+<div class="container-fluid py-3">
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold text-primary mb-1">
+                <i class="bi bi-people-fill me-2"></i>Quản lý Thành viên
+            </h2>
+            <p class="text-muted mb-0">Danh sách thành viên từ cơ sở dữ liệu (EF Core Database-First)</p>
+        </div>
+        <div>
+            <a asp-action="Create" class="btn btn-primary px-3 shadow-sm">
+                <i class="bi bi-person-plus-fill me-1"></i> Thêm mới thành viên
+            </a>
+        </div>
+    </div>
+
+    <!-- Alert thông báo -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i> @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- Search & Filter Card -->
+    <div class="card shadow-sm border-0 mb-4 bg-light">
+        <div class="card-body">
+            <form asp-action="Index" method="get" class="row g-3 align-items-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white"><i class="bi bi-search"></i></span>
+                        <input type="text" name="searchString" value="@ViewBag.CurrentSearch" class="form-control" placeholder="Tìm theo tên, username, email, SĐT..." />
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <select name="statusFilter" class="form-select">
+                        <option value="">-- Tất cả trạng thái --</option>
+                        <option value="active" selected="@(ViewBag.CurrentStatus == "active")">Đang hoạt động</option>
+                        <option value="inactive" selected="@(ViewBag.CurrentStatus == "inactive")">Đã khóa / Tạm ngưng</option>
+                    </select>
+                </div>
+                <div class="col-md-3 col-lg-4 d-flex gap-2">
+                    <button type="submit" class="btn btn-dark">
+                        <i class="bi bi-funnel-fill me-1"></i> Lọc dữ liệu
+                    </button>
+                    @if (!string.IsNullOrEmpty(ViewBag.CurrentSearch) || !string.IsNullOrEmpty(ViewBag.CurrentStatus))
+                    {
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-x-circle me-1"></i> Đặt lại
+                        </a>
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Data Table Card -->
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-primary text-nowrap">
+                        <tr>
+                            <th class="ps-3" style="width: 80px;">@Html.DisplayNameFor(model => model.Id)</th>
+                            <th>@Html.DisplayNameFor(model => model.VttFullName)</th>
+                            <th>@Html.DisplayNameFor(model => model.VttUserName)</th>
+                            <th>@Html.DisplayNameFor(model => model.VttEmail)</th>
+                            <th>@Html.DisplayNameFor(model => model.VttPhone)</th>
+                            <th class="text-center" style="width: 150px;">@Html.DisplayNameFor(model => model.VttStatus)</th>
+                            <th class="text-center pe-3" style="width: 220px;">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="7" class="text-center py-4 text-muted">
+                                    <i class="bi bi-inbox fs-2 d-block mb-2"></i>
+                                    Chưa có dữ liệu thành viên nào. Hãy bấm <strong>Thêm mới</strong>!
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="ps-3 fw-bold text-muted">#@item.Id</td>
+                                    <td>
+                                        <div class="fw-bold text-dark">@item.VttFullName</div>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-secondary-subtle text-secondary border">@item.VttUserName</span>
+                                    </td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(item.VttEmail))
+                                        {
+                                            <a href="mailto:@item.VttEmail" class="text-decoration-none">
+                                                <i class="bi bi-envelope me-1"></i>@item.VttEmail
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted fst-italic">Chưa có</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(item.VttPhone))
+                                        {
+                                            <span><i class="bi bi-telephone me-1 text-muted"></i>@item.VttPhone.Trim()</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted fst-italic">Chưa có</span>
+                                        }
+                                    </td>
+                                    <td class="text-center">
+                                        @if (item.VttStatus == true)
+                                        {
+                                            <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">
+                                                <i class="bi bi-check-circle me-1"></i>Hoạt động
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-danger-subtle text-danger border border-danger-subtle px-2 py-1">
+                                                <i class="bi bi-slash-circle me-1"></i>Tạm khóa
+                                            </span>
+                                        }
+                                    </td>
+                                    <td class="text-center pe-3 text-nowrap">
+                                        <div class="btn-group btn-group-sm" role="group">
+                                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning" title="Chỉnh sửa">
+                                                <i class="bi bi-pencil-square"></i> Sửa
+                                            </a>
+                                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info" title="Xem chi tiết">
+                                                <i class="bi bi-eye"></i> Xem
+                                            </a>
+                                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger" title="Xóa">
+                                                <i class="bi bi-trash"></i> Xóa
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-footer bg-white border-top py-3 text-muted small d-flex justify-content-between align-items-center">
+            <span>Tổng số: <strong>@Model.Count()</strong> thành viên</span>
+            <span>EF Core Database-First • ASP.NET Core 8.0</span>
+        </div>
+    </div>
+</div>
