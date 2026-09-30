@@ -1,0 +1,108 @@
+@model IEnumerable<VttLesson12.Models.Product>
+
+@{
+    ViewData["Title"] = "Quản lý sản phẩm";
+}
+
+<div class="container-fluid mt-3">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary"><i class="bi bi-box-seam"></i> Quản lý sản phẩm</h2>
+        <a asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Thêm mới sản phẩm
+        </a>
+    </div>
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th style="width: 100px;">Hình ảnh</th>
+                            <th>Mã SP</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Đơn giá</th>
+                            <th>Giá KM</th>
+                            <th>Trạng thái</th>
+                            <th>Ngày tạo</th>
+                            <th class="text-center" style="width: 220px;">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (!Model.Any())
+                        {
+                            <tr>
+                                <td colspan="8" class="text-center py-4 text-muted">
+                                    Chưa có sản phẩm nào. Hãy bấm <strong>Thêm mới sản phẩm</strong> để bắt đầu.
+                                </td>
+                            </tr>
+                        }
+                        else
+                        {
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(item.VttImages))
+                                        {
+                                            <img src="@item.VttImages" alt="@item.VttName" class="img-thumbnail" style="width: 75px; height: 75px; object-fit: cover;" />
+                                        }
+                                        else
+                                        {
+                                            <div class="bg-light border text-center text-muted d-flex align-items-center justify-content-center" style="width: 75px; height: 75px; font-size: 11px;">
+                                                Chưa có ảnh
+                                            </div>
+                                        }
+                                    </td>
+                                    <td><strong>@item.VttId</strong></td>
+                                    <td class="fw-semibold">@item.VttName</td>
+                                    <td class="text-primary fw-bold">@string.Format("{0:N0} đ", item.VttPrice)</td>
+                                    <td>
+                                        @if (item.VttSalePrice.HasValue)
+                                        {
+                                            <span class="text-danger fw-bold">@string.Format("{0:N0} đ", item.VttSalePrice.Value)</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-muted">-</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (item.VttStatus == "Còn hàng" || item.VttStatus == "1")
+                                        {
+                                            <span class="badge bg-success">Còn hàng</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">@item.VttStatus</span>
+                                        }
+                                    </td>
+                                    <td>@item.VttCreateDate.ToString("dd/MM/yyyy HH:mm")</td>
+                                    <td class="text-center">
+                                        <a asp-action="Edit" asp-route-id="@item.VttId" class="btn btn-sm btn-outline-primary me-1" title="Sửa">
+                                            Sửa
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@item.VttId" class="btn btn-sm btn-outline-info me-1" title="Chi tiết">
+                                            Chi tiết
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@item.VttId" class="btn btn-sm btn-outline-danger" title="Xóa">
+                                            Xóa
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

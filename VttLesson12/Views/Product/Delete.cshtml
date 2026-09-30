@@ -1,0 +1,41 @@
+@model VttLesson12.Models.Product
+
+@{
+    ViewData["Title"] = "Xác nhận xóa sản phẩm";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card shadow-sm border-danger">
+                <div class="card-header bg-danger text-white py-3">
+                    <h4 class="mb-0"><i class="bi bi-exclamation-triangle"></i> Xác nhận xóa sản phẩm</h4>
+                </div>
+                <div class="card-body p-4 text-center">
+                    <div class="mb-3">
+                        @if (!string.IsNullOrEmpty(Model.VttImages))
+                        {
+                            <img src="@Model.VttImages" alt="@Model.VttName" class="img-thumbnail" style="max-height: 160px; object-fit: contain;" />
+                        }
+                    </div>
+                    <h5 class="text-danger mb-3">Bạn có chắc chắn muốn xóa sản phẩm này không?</h5>
+                    <p class="mb-1"><strong>Mã sản phẩm:</strong> @Model.VttId</p>
+                    <p class="mb-1"><strong>Tên sản phẩm:</strong> @Model.VttName</p>
+                    <p class="mb-3"><strong>Đơn giá:</strong> @string.Format("{0:N0} VNĐ", Model.VttPrice)</p>
+
+                    <form asp-action="Delete" method="post">
+                        <input type="hidden" asp-for="VttId" />
+                        <div class="d-flex justify-content-center gap-3">
+                            <a asp-action="Index" class="btn btn-secondary px-4">
+                                <i class="bi bi-x-lg"></i> Hủy bỏ
+                            </a>
+                            <button type="submit" class="btn btn-danger px-4">
+                                <i class="bi bi-trash"></i> Xóa vĩnh viễn
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

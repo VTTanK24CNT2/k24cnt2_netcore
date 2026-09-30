@@ -1,0 +1,84 @@
+@model VttLesson12.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết sản phẩm";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-info text-white py-3">
+                    <h4 class="mb-0"><i class="bi bi-info-circle"></i> Chi tiết sản phẩm: @Model.VttName</h4>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-md-5 text-center mb-3">
+                            @if (!string.IsNullOrEmpty(Model.VttImages))
+                            {
+                                <img src="@Model.VttImages" alt="@Model.VttName" class="img-fluid rounded shadow-sm border p-2" style="max-height: 280px; object-fit: contain;" />
+                            }
+                            else
+                            {
+                                <div class="bg-light border rounded d-flex align-items-center justify-content-center" style="height: 240px;">
+                                    <span class="text-muted">Chưa có ảnh</span>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-7">
+                            <dl class="row mb-0">
+                                <dt class="col-sm-5 text-muted">Mã sản phẩm:</dt>
+                                <dd class="col-sm-7 fw-bold">@Model.VttId</dd>
+
+                                <dt class="col-sm-5 text-muted">Tên sản phẩm:</dt>
+                                <dd class="col-sm-7 fw-bold fs-5 text-primary">@Model.VttName</dd>
+
+                                <dt class="col-sm-5 text-muted">Đơn giá:</dt>
+                                <dd class="col-sm-7 text-danger fw-bold fs-5">@string.Format("{0:N0} VNĐ", Model.VttPrice)</dd>
+
+                                <dt class="col-sm-5 text-muted">Giá khuyến mãi:</dt>
+                                <dd class="col-sm-7">
+                                    @if (Model.VttSalePrice.HasValue)
+                                    {
+                                        <span class="badge bg-danger fs-6">@string.Format("{0:N0} VNĐ", Model.VttSalePrice.Value)</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">-</span>
+                                    }
+                                </dd>
+
+                                <dt class="col-sm-5 text-muted">Mã danh mục:</dt>
+                                <dd class="col-sm-7">@(Model.VttCategoryId ?? "Chưa phân loại")</dd>
+
+                                <dt class="col-sm-5 text-muted">Trạng thái:</dt>
+                                <dd class="col-sm-7">
+                                    <span class="badge bg-success">@Model.VttStatus</span>
+                                </dd>
+
+                                <dt class="col-sm-5 text-muted">Ngày tạo:</dt>
+                                <dd class="col-sm-7">@Model.VttCreateDate.ToString("dd/MM/yyyy HH:mm:ss")</dd>
+
+                                <dt class="col-sm-5 text-muted">Mô tả:</dt>
+                                <dd class="col-sm-7">@(string.IsNullOrEmpty(Model.VttDescription) ? "Không có mô tả" : Model.VttDescription)</dd>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-light d-flex justify-content-between py-3">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left"></i> Quay lại danh sách
+                    </a>
+                    <div>
+                        <a asp-action="Edit" asp-route-id="@Model.VttId" class="btn btn-warning me-2">
+                            <i class="bi bi-pencil"></i> Chỉnh sửa
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@Model.VttId" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Xóa
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

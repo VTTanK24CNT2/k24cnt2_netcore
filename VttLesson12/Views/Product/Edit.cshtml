@@ -1,0 +1,127 @@
+@model VttLesson12.Models.Product
+
+@{
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-warning text-dark py-3">
+                    <h4 class="mb-0"><i class="bi bi-pencil-square"></i> Chỉnh sửa sản phẩm: @Model.VttName</h4>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+
+                        <!-- Khóa chính không cho sửa -->
+                        <input type="hidden" asp-for="VttId" />
+                        <input type="hidden" asp-for="VttCreateDate" />
+                        <input type="hidden" asp-for="VttImages" />
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label asp-for="VttId" class="form-label fw-bold"></label>
+                                <input value="@Model.VttId" class="form-control" disabled />
+                            </div>
+                            <div class="col-md-8">
+                                <label asp-for="VttName" class="form-label fw-bold"></label> <span class="text-danger">*</span>
+                                <input asp-for="VttName" class="form-control" />
+                                <span asp-validation-for="VttName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="VttPrice" class="form-label fw-bold"></label> <span class="text-danger">*</span>
+                                <div class="input-group">
+                                    <input asp-for="VttPrice" class="form-control" type="number" step="1000" min="0" />
+                                    <span class="input-group-text">VNĐ</span>
+                                </div>
+                                <span asp-validation-for="VttPrice" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="VttSalePrice" class="form-label fw-bold"></label>
+                                <div class="input-group">
+                                    <input asp-for="VttSalePrice" class="form-control" type="number" step="1000" min="0" />
+                                    <span class="input-group-text">VNĐ</span>
+                                </div>
+                                <span asp-validation-for="VttSalePrice" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label asp-for="VttCategoryId" class="form-label fw-bold"></label>
+                                <input asp-for="VttCategoryId" class="form-control" />
+                                <span asp-validation-for="VttCategoryId" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="VttStatus" class="form-label fw-bold"></label> <span class="text-danger">*</span>
+                                <select asp-for="VttStatus" class="form-select">
+                                    <option value="Còn hàng">Còn hàng</option>
+                                    <option value="Hết hàng">Hết hàng</option>
+                                    <option value="Tạm ngưng">Tạm ngưng</option>
+                                </select>
+                                <span asp-validation-for="VttStatus" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">Hình ảnh hiện tại</label>
+                            <div class="mb-2">
+                                @if (!string.IsNullOrEmpty(Model.VttImages))
+                                {
+                                    <img src="@Model.VttImages" alt="@Model.VttName" class="img-thumbnail" style="max-height: 150px; object-fit: contain;" />
+                                }
+                                else
+                                {
+                                    <p class="text-muted fst-italic">Chưa có ảnh</p>
+                                }
+                            </div>
+                            <label asp-for="ImageUpload" class="form-label fw-bold">Chọn ảnh mới thay thế (nếu muốn)</label>
+                            <input asp-for="ImageUpload" class="form-control" type="file" accept="image/*" onchange="previewImage(event)" />
+                            <span asp-validation-for="ImageUpload" class="text-danger"></span>
+                            <div class="mt-2">
+                                <img id="imagePreview" src="#" alt="Ảnh mới xem trước" class="img-thumbnail d-none" style="max-height: 150px; object-fit: contain;" />
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="VttDescription" class="form-label fw-bold"></label>
+                            <textarea asp-for="VttDescription" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="VttDescription" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Index" class="btn btn-secondary">
+                                <i class="bi bi-arrow-left"></i> Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-warning px-4 fw-bold">
+                                <i class="bi bi-check-lg"></i> Cập nhật thay đổi
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('imagePreview');
+                output.src = reader.result;
+                output.classList.remove('d-none');
+            };
+            if (event.target.files[0]) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+    </script>
+}

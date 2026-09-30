@@ -1,0 +1,18 @@
+CREATE DATABASE VttLesson12;
+GO
+
+USE VttLesson12;
+GO
+
+CREATE TABLE Product (
+    VttId VARCHAR(20) PRIMARY KEY,
+    VttName NVARCHAR(100) NOT NULL,
+    VttPrice DECIMAL(18,2) NOT NULL,
+    VttSalePrice DECIMAL(18,2) NULL,
+    VttStatus NVARCHAR(50) NOT NULL,
+    VttCreateDate DATETIME NOT NULL,
+    VttImages NVARCHAR(255) NULL,
+    VttCategoryId VARCHAR(20) NULL,
+    VttDescription NVARCHAR(500) NULL
+);
+GO
