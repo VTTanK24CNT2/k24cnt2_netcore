@@ -1,0 +1,70 @@
+@model VttLesson14CoreA7.Models.Product
+
+@{
+    ViewData["Title"] = "Chi tiết Sản phẩm: " + Model.Name;
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-9 col-lg-8">
+        <div class="admin-card">
+            <div class="admin-card-header bg-white border-bottom py-3">
+                <h5 class="card-title fw-bold text-info text-dark m-0">
+                    <i class="bi bi-box-seam me-2"></i>Thông tin Chi tiết Sản phẩm #@Model.Id
+                </h5>
+            </div>
+            <div class="admin-card-body p-4">
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-5 text-center">
+                        @if (!string.IsNullOrEmpty(Model.Image))
+                        {
+                            <img src="@Model.Image" alt="@Model.Name" class="img-fluid rounded border shadow-sm p-2 bg-white" style="max-height: 250px; object-fit: contain;" onerror="this.onerror=null;this.src='https://placehold.co/250x250?text=SP';" />
+                        }
+                        else
+                        {
+                            <div class="bg-light rounded border p-5 text-muted">
+                                <i class="bi bi-image fs-1 d-block mb-2"></i>
+                                Không có hình ảnh
+                            </div>
+                        }
+                    </div>
+
+                    <div class="col-md-7">
+                        <dl class="row mb-0">
+                            <dt class="col-sm-4 text-muted">Mã sản phẩm:</dt>
+                            <dd class="col-sm-8 fw-bold">#@Model.Id</dd>
+
+                            <dt class="col-sm-4 text-muted">Tên sản phẩm:</dt>
+                            <dd class="col-sm-8 fw-bold fs-5 text-dark">@Model.Name</dd>
+
+                            <dt class="col-sm-4 text-muted">Danh mục:</dt>
+                            <dd class="col-sm-8">
+                                <span class="badge bg-info-subtle text-info border px-2 py-1">
+                                    <i class="bi bi-tag me-1"></i>@(Model.Category?.Name ?? "Chưa có danh mục")
+                                </span>
+                            </dd>
+
+                            <dt class="col-sm-4 text-muted">Giá bán niêm yết:</dt>
+                            <dd class="col-sm-8 fw-bold text-danger fs-4">
+                                @Model.Price.ToString("N0") đ
+                            </dd>
+
+                            <dt class="col-sm-4 text-muted">Đường dẫn ảnh:</dt>
+                            <dd class="col-sm-8 text-break small text-muted">
+                                @(string.IsNullOrEmpty(Model.Image) ? "Chưa thiết lập" : Model.Image)
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-top d-flex gap-2">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning text-dark fw-semibold">
+                        <i class="bi bi-pencil-square me-1"></i> Chỉnh sửa
+                    </a>
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left me-1"></i> Quay lại danh sách
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,114 @@
+@model VttLesson14CoreA7.Models.BannerBlog
+
+@{
+    ViewData["Title"] = "Thêm mới Banner / Blog";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-9 col-lg-8">
+        <div class="admin-card">
+            <div class="admin-card-header bg-white border-bottom py-3">
+                <h5 class="card-title fw-bold text-warning text-dark m-0">
+                    <i class="bi bi-newspaper me-2"></i>Thêm Banner hoặc Bài viết Blog Mới
+                </h5>
+            </div>
+            <div class="admin-card-body p-4">
+                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 small" role="alert"></div>
+
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <label asp-for="Title" class="form-label fw-semibold"></label>
+                            <input asp-for="Title" class="form-control" placeholder="Nhập tiêu đề banner / bài viết..." autofocus />
+                            <span asp-validation-for="Title" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="Type" class="form-label fw-semibold"></label>
+                            <select asp-for="Type" class="form-select">
+                                <option value="Banner">Banner quảng cáo</option>
+                                <option value="Blog">Bài viết / Blog tin tức</option>
+                            </select>
+                            <span asp-validation-for="Type" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="Description" class="form-label fw-semibold"></label>
+                            <textarea asp-for="Description" class="form-control" rows="4" maxlength="350" placeholder="Mô tả chi tiết nội dung (tối đa 350 ký tự)..."></textarea>
+                            <span asp-validation-for="Description" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Tải lên tệp ảnh</label>
+                            <input type="file" name="imageFile" class="form-control" accept="image/*" id="imageFileInput" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="Image" class="form-label fw-semibold">Hoặc link URL ảnh</label>
+                            <input asp-for="Image" class="form-control" placeholder="https://..." id="imageUrlInput" />
+                            <span asp-validation-for="Image" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="CreatedDate" class="form-label fw-semibold"></label>
+                            <input asp-for="CreatedDate" class="form-control" type="datetime-local" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
+                            <span asp-validation-for="CreatedDate" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6 d-flex align-items-center mt-4">
+                            <div class="form-check form-switch fs-6">
+                                <input class="form-check-input" type="checkbox" role="switch" asp-for="IsActive" checked />
+                                <label class="form-check-label fw-semibold" asp-for="IsActive">Kích hoạt hiển thị</label>
+                            </div>
+                        </div>
+
+                        <!-- Preview -->
+                        <div class="col-12" id="previewContainer" style="display: none;">
+                            <label class="form-label fw-semibold text-muted">Xem trước ảnh:</label>
+                            <div>
+                                <img id="imagePreview" src="#" alt="Preview" class="rounded border shadow-sm" style="max-height: 180px; width: 100%; object-fit: cover;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center pt-4 mt-3 border-top">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-1"></i> Quay lại
+                        </a>
+                        <button type="submit" class="btn btn-warning text-dark fw-bold px-4">
+                            <i class="bi bi-check-lg me-1"></i> Lưu Banner / Blog
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const fileInput = document.getElementById('imageFileInput');
+        const urlInput = document.getElementById('imageUrlInput');
+        const preview = document.getElementById('imagePreview');
+        const previewContainer = document.getElementById('previewContainer');
+
+        fileInput.addEventListener('change', function () {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    previewContainer.style.display = 'block';
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        urlInput.addEventListener('input', function () {
+            if (this.value.trim().length > 5) {
+                preview.src = this.value;
+                previewContainer.style.display = 'block';
+            }
+        });
+    </script>
+}

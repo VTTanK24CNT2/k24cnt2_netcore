@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Trang Demo Layout Phụ (_main.cshtml)";
+    Layout = "~/Views/Shared/_main.cshtml";
+}
+
+<div class="p-5 mb-4 bg-light rounded-3 border shadow-sm">
+    <div class="container-fluid py-2">
+        <h1 class="display-6 fw-bold text-dark">
+            <i class="bi bi-layout-wtf me-2 text-warning"></i>Minh họa BÀI 2: Tùy biến Layout phụ
+        </h1>
+        <p class="col-md-10 fs-5 text-secondary">
+            Trang này đang sử dụng file giao diện <code>_main.cshtml</code> thông qua khai báo:
+        </p>
+        <pre class="bg-dark text-warning p-3 rounded font-monospace fs-6"><code>@@{
+    ViewData["Title"] = "Trang Demo Layout Phụ (_main.cshtml)";
+    Layout = "~/Views/Shared/_main.cshtml";
+}</code></pre>
+        <hr class="my-4" />
+        <p class="mb-4">
+            Đúng theo yêu cầu <strong>Bài 2 - Bước 3 (Cách 1)</strong> trong tài liệu Labguide 07:
+            Khai báo trực tiếp layout ở đầu trang View để ghi đè layout mặc định trong <code>_ViewStart.cshtml</code>.
+        </p>
+        <div class="d-flex gap-2">
+            <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-outline-dark">
+                <i class="bi bi-arrow-left me-1"></i> Quay về Trang chủ (Dùng _Layout.cshtml)
+            </a>
+            <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="btn btn-warning text-dark fw-bold">
+                <i class="bi bi-shield-lock me-1"></i> Đến Khu Quản Trị Admin
+            </a>
+        </div>
+    </div>
+</div>

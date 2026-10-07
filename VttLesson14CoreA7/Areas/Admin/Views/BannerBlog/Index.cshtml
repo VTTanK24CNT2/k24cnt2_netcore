@@ -1,0 +1,130 @@
+@model IEnumerable<VttLesson14CoreA7.Models.BannerBlog>
+
+@{
+    ViewData["Title"] = "Quản lý Banner & Blog";
+}
+
+<div class="admin-card">
+    <div class="admin-card-header bg-white py-3">
+        <div class="row align-items-center g-2">
+            <div class="col-md-5">
+                <a asp-action="Create" class="btn btn-warning text-dark fw-semibold">
+                    <i class="bi bi-plus-circle me-1"></i> Thêm mới Banner / Blog
+                </a>
+            </div>
+            <div class="col-md-7">
+                <form method="get" class="d-flex gap-2">
+                    <input type="text" name="searchString" value="@ViewBag.SearchString" class="form-control" placeholder="Tìm kiếm tiêu đề, nội dung..." />
+                    <select name="type" class="form-select" style="max-width: 150px;">
+                        <option value="">Tất cả loại</option>
+                        <option value="Banner" selected="@(ViewBag.Type == "Banner")">Banner</option>
+                        <option value="Blog" selected="@(ViewBag.Type == "Blog")">Blog</option>
+                    </select>
+                    <button type="submit" class="btn btn-outline-secondary">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    @if (!string.IsNullOrEmpty(ViewBag.SearchString) || !string.IsNullOrEmpty(ViewBag.Type))
+                    {
+                        <a asp-action="Index" class="btn btn-outline-danger" title="Xóa bộ lọc">
+                            <i class="bi bi-x-lg"></i>
+                        </a>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="admin-card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 70px;">Mã</th>
+                        <th style="width: 100px;">Hình ảnh</th>
+                        <th>Tiêu đề / Tên</th>
+                        <th>Phân loại</th>
+                        <th>Mô tả chi tiết</th>
+                        <th>Ngày tạo</th>
+                        <th class="text-end" style="min-width: 180px;">Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.Any())
+                    {
+                        <tr>
+                            <td colspan="7" class="text-center py-5 text-muted">
+                                <i class="bi bi-inbox fs-1 d-block mb-2"></i>
+                                Không tìm thấy Banner hoặc Bài viết nào!
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="fw-bold text-secondary">#@item.Id</td>
+                                <td>
+                                    @if (!string.IsNullOrEmpty(item.Image))
+                                    {
+                                        <img src="@item.Image" alt="@item.Title" class="rounded border shadow-sm" style="width: 80px; height: 48px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/80x48?text=Banner';" />
+                                    }
+                                    else
+                                    {
+                                        <div class="bg-light rounded border text-muted d-flex align-items-center justify-content-center" style="width: 80px; height: 48px;">
+                                            <i class="bi bi-image text-muted"></i>
+                                        </div>
+                                    }
+                                </td>
+                                <td>
+                                    <div class="fw-bold text-dark fs-6">@item.Title</div>
+                                    @if (item.IsActive)
+                                    {
+                                        <span class="badge bg-success-subtle text-success border border-success-subtle" style="font-size: 0.75rem;">
+                                            <i class="bi bi-check-circle me-1"></i>Đang hiển thị
+                                        </span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle" style="font-size: 0.75rem;">
+                                            <i class="bi bi-eye-slash me-1"></i>Đã ẩn
+                                        </span>
+                                    }
+                                </td>
+                                <td>
+                                    @if (item.Type == "Banner")
+                                    {
+                                        <span class="badge bg-warning text-dark fw-bold">Banner</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-info text-white fw-bold">Blog</span>
+                                    }
+                                </td>
+                                <td style="max-width: 280px;">
+                                    <div class="text-truncate text-secondary" title="@item.Description">
+                                        @item.Description
+                                    </div>
+                                </td>
+                                <td class="text-muted small">
+                                    @item.CreatedDate.ToString("dd/MM/yyyy")
+                                </td>
+                                <td class="text-end">
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-info" title="Xem chi tiết">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-warning" title="Chỉnh sửa">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger" title="Xóa">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

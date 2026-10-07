@@ -1,0 +1,128 @@
+@{
+    ViewData["Title"] = "Trang chủ - Hệ thống Quản trị & Bán hàng VTT";
+    var categories = ViewBag.Categories as List<VttLesson14CoreA7.Models.Category> ?? new List<VttLesson14CoreA7.Models.Category>();
+    var products = ViewBag.Products as List<VttLesson14CoreA7.Models.Product> ?? new List<VttLesson14CoreA7.Models.Product>();
+    var banners = ViewBag.Banners as List<VttLesson14CoreA7.Models.BannerBlog> ?? new List<VttLesson14CoreA7.Models.BannerBlog>();
+}
+
+<!-- Hero Welcome Section -->
+<div class="p-5 mb-4 bg-white rounded-3 shadow-sm border border-light">
+    <div class="container-fluid py-2">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <span class="badge bg-warning text-dark fw-bold px-3 py-2 mb-3">
+                    <i class="bi bi-mortarboard-fill me-1"></i> BÀI THỰC HÀNH 07: TÌM HIỂU VỀ LAYOUT &amp; AREA
+                </span>
+                <h1 class="display-5 fw-bold text-dark mb-3">Hệ Thống Quản Trị &amp; Cửa Hàng</h1>
+                <p class="fs-5 text-secondary mb-4">
+                    Dự án ASP.NET Core 8 MVC hoàn chỉnh theo chuẩn Labguide 07: tích hợp giao diện <strong>AdminLTE</strong> trong Area Admin, cấu hình layout động, và xây dựng CRUD cho 3 bảng <code>CATEGORY</code>, <code>PRODUCT</code>, <code>BANNER/BLOG</code>.
+                </p>
+                <div class="d-flex flex-wrap gap-2">
+                    <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="btn btn-warning btn-lg fw-bold px-4 shadow-sm">
+                        <i class="bi bi-speedometer2 me-2"></i> Vào Trang Quản Trị (Admin Area)
+                    </a>
+                    <a asp-area="" asp-controller="Home" asp-action="DemoMainLayout" class="btn btn-outline-dark btn-lg px-4">
+                        <i class="bi bi-layout-text-window me-2"></i> Thử nghiệm _main.cshtml (Bài 2)
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                <div class="p-4 bg-light rounded-4 border">
+                    <i class="bi bi-diagram-3 text-primary" style="font-size: 5rem;"></i>
+                    <h5 class="fw-bold mt-2">Cấu trúc Area: Admin</h5>
+                    <p class="small text-muted mb-0">Tách biệt hoàn toàn Layout &amp; Controller người dùng và quản trị viên.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Banner Carousel or List -->
+@if (banners.Any())
+{
+    <div class="mb-5">
+        <h4 class="fw-bold mb-3 text-dark">
+            <i class="bi bi-megaphone-fill text-danger me-2"></i>Banner &amp; Tin tức khuyến mãi
+        </h4>
+        <div class="row g-3">
+            @foreach (var b in banners.Take(2))
+            {
+                <div class="col-md-6">
+                    <div class="card h-100 border-0 shadow-sm overflow-hidden">
+                        @if (!string.IsNullOrEmpty(b.Image))
+                        {
+                            <img src="@b.Image" class="card-img-top" alt="@b.Title" style="height: 180px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/600x200?text=Banner';" />
+                        }
+                        <div class="card-body">
+                            <span class="badge @(b.Type == "Banner" ? "bg-warning text-dark" : "bg-info text-white") mb-2">@b.Type</span>
+                            <h5 class="card-title fw-bold text-dark">@b.Title</h5>
+                            <p class="card-text text-secondary small">@b.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+<!-- Featured Products Section -->
+<div class="mb-5">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="fw-bold text-dark m-0">
+            <i class="bi bi-stars text-warning me-2"></i>Sản phẩm nổi bật trong CSDL
+        </h4>
+        <a asp-area="Admin" asp-controller="Product" asp-action="Index" class="btn btn-sm btn-outline-primary">
+            Quản lý trong Admin <i class="bi bi-arrow-right"></i>
+        </a>
+    </div>
+
+    <!-- Category Pills -->
+    <div class="d-flex flex-wrap gap-2 mb-4">
+        <span class="badge bg-dark px-3 py-2 fs-6">Tất cả sản phẩm</span>
+        @foreach (var cat in categories)
+        {
+            <a asp-area="Admin" asp-controller="Product" asp-route-categoryId="@cat.Id" class="badge bg-light text-dark border px-3 py-2 fs-6 text-decoration-none">
+                @cat.Name
+            </a>
+        }
+    </div>
+
+    <!-- Product Grid -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        @foreach (var item in products)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0 product-card">
+                    <div class="p-3 text-center bg-white" style="height: 200px;">
+                        @if (!string.IsNullOrEmpty(item.Image))
+                        {
+                            <img src="@item.Image" alt="@item.Name" class="img-fluid h-100" style="object-fit: contain;" onerror="this.onerror=null;this.src='https://placehold.co/200x200?text=Product';" />
+                        }
+                        else
+                        {
+                            <div class="h-100 d-flex align-items-center justify-content-center text-muted">
+                                <i class="bi bi-image fs-1"></i>
+                            </div>
+                        }
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <div class="small text-muted mb-1">
+                            <i class="bi bi-tag me-1"></i>@(item.Category?.Name ?? "Công nghệ")
+                        </div>
+                        <h6 class="card-title fw-bold text-dark text-truncate" title="@item.Name">
+                            @item.Name
+                        </h6>
+                        <div class="mt-auto pt-2 d-flex justify-content-between align-items-center">
+                            <span class="fw-bold text-danger fs-5">
+                                @item.Price.ToString("N0") đ
+                            </span>
+                            <a asp-area="Admin" asp-controller="Product" asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary" title="Xem chi tiết">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

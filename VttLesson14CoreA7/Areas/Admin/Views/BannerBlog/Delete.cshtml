@@ -1,0 +1,44 @@
+@model VttLesson14CoreA7.Models.BannerBlog
+
+@{
+    ViewData["Title"] = "Xác nhận xóa " + Model.Type;
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="admin-card border-danger">
+            <div class="admin-card-header bg-danger text-white py-3">
+                <h5 class="card-title fw-bold m-0">
+                    <i class="bi bi-trash3-fill me-2"></i>Xác nhận xóa @Model.Type
+                </h5>
+            </div>
+            <div class="admin-card-body p-4">
+                <p class="text-danger fw-semibold">Bạn có chắc chắn muốn xóa bài viết / banner này không?</p>
+
+                <div class="bg-light p-3 rounded mb-4">
+                    <div class="d-flex align-items-center gap-3 mb-2">
+                        @if (!string.IsNullOrEmpty(Model.Image))
+                        {
+                            <img src="@Model.Image" alt="@Model.Title" class="rounded border" style="width: 70px; height: 50px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/70x50?text=Banner';" />
+                        }
+                        <div>
+                            <span class="badge @(Model.Type == "Banner" ? "bg-warning text-dark" : "bg-info text-white") mb-1">@Model.Type</span>
+                            <div class="fw-bold text-dark fs-6">@Model.Title</div>
+                        </div>
+                    </div>
+                    <small class="text-muted d-block mt-2">@Model.Description</small>
+                </div>
+
+                <form asp-action="Delete" method="post" class="d-flex justify-content-between align-items-center pt-2 border-top">
+                    <input type="hidden" asp-for="Id" />
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-x-circle me-1"></i> Hủy bỏ
+                    </a>
+                    <button type="submit" class="btn btn-danger px-4">
+                        <i class="bi bi-trash-fill me-1"></i> Xóa dữ liệu
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

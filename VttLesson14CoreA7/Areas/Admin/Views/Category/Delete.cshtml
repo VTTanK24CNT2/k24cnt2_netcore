@@ -1,0 +1,63 @@
+@model VttLesson14CoreA7.Models.Category
+
+@{
+    ViewData["Title"] = "Xác nhận xóa Danh mục";
+    var productCount = Model.Products?.Count ?? 0;
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="admin-card border-danger">
+            <div class="admin-card-header bg-danger text-white py-3">
+                <h5 class="card-title fw-bold m-0">
+                    <i class="bi bi-exclamation-triangle-fill me-2"></i>Cảnh báo: Xác nhận xóa Danh mục
+                </h5>
+            </div>
+            <div class="admin-card-body p-4">
+                @if (productCount > 0)
+                {
+                    <div class="alert alert-warning d-flex align-items-center" role="alert">
+                        <i class="bi bi-shield-exclamation fs-3 me-3 text-warning"></i>
+                        <div>
+                            <strong>Chú ý ràng buộc dữ liệu:</strong> Danh mục này hiện đang chứa <strong>@productCount sản phẩm</strong>.
+                            Hệ thống bảo vệ toàn vẹn dữ liệu sẽ ngăn chặn xóa cho đến khi các sản phẩm được chuyển sang danh mục khác!
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-danger fw-semibold">Bạn có chắc chắn muốn xóa vĩnh viễn danh mục này không?</p>
+                }
+
+                <div class="bg-light p-3 rounded mb-4">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 text-muted">Mã danh mục:</dt>
+                        <dd class="col-sm-8 fw-bold">#@Model.Id</dd>
+
+                        <dt class="col-sm-4 text-muted">Tên danh mục:</dt>
+                        <dd class="col-sm-8 fw-bold text-dark fs-5">@Model.Name</dd>
+
+                        <dt class="col-sm-4 text-muted">Trạng thái:</dt>
+                        <dd class="col-sm-8">@(Model.Status == 1 ? "Hiển thị" : "Ẩn")</dd>
+
+                        <dt class="col-sm-4 text-muted">Số sản phẩm:</dt>
+                        <dd class="col-sm-8 fw-semibold">@productCount sản phẩm</dd>
+
+                        <dt class="col-sm-4 text-muted">Ngày tạo:</dt>
+                        <dd class="col-sm-8">@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm")</dd>
+                    </dl>
+                </div>
+
+                <form asp-action="Delete" method="post" class="d-flex justify-content-between align-items-center pt-2 border-top">
+                    <input type="hidden" asp-for="Id" />
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-x-circle me-1"></i> Hủy bỏ &amp; Quay lại
+                    </a>
+                    <button type="submit" class="btn btn-danger px-4" @(productCount > 0 ? "disabled" : "")>
+                        <i class="bi bi-trash-fill me-1"></i> Xác nhận xóa
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

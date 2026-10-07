@@ -1,0 +1,54 @@
+@{
+    ViewData["Title"] = "Giới thiệu Bài thực hành 07";
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm p-4">
+            <h2 class="fw-bold text-primary mb-3">
+                <i class="bi bi-journal-code me-2"></i>Labguide 07: Tìm hiểu về Layout &amp; Area
+            </h2>
+            <p class="text-secondary lead">
+                Tài liệu thực hành ASP.NET Core MVC - Khoa Công nghệ Thông tin - K24CNT2
+            </p>
+            <hr />
+
+            <h5 class="fw-bold text-dark mt-3">Các mục tiêu đã hoàn thành:</h5>
+            <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-3"></i>
+                    <div>
+                        <strong>Bài 1:</strong> Tìm hiểu cấu trúc <code>_Layout.cshtml</code>, cấu hình <code>_ViewImports.cshtml</code> và <code>_ViewStart.cshtml</code>.
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-3"></i>
+                    <div>
+                        <strong>Bài 2:</strong> Tạo file Layout phụ <code>_main.cshtml</code> và áp dụng Custom Layout cho View con.
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-3"></i>
+                    <div>
+                        <strong>Bài 3:</strong> Xây dựng cấu trúc Area <code>Admin</code> với Layout riêng <code>_LayoutAdmin.cshtml</code>, cấu hình Route <code>{area:exists}</code> trong Program.cs.
+                    </div>
+                </li>
+                <li class="list-group-item d-flex align-items-center">
+                    <i class="bi bi-check-circle-fill text-success fs-5 me-3"></i>
+                    <div>
+                        <strong>Bài 4 &amp; Bài tập tự làm:</strong> Tích hợp giao diện AdminLTE chuyên nghiệp, thiết kế CSDL và giao diện CRUD hoàn chỉnh cho 3 bảng <code>Category</code>, <code>Product</code>, <code>Banner / Blog</code>.
+                    </div>
+                </li>
+            </ul>
+
+            <div class="d-flex gap-2">
+                <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="btn btn-warning text-dark fw-bold">
+                    <i class="bi bi-speedometer2 me-1"></i> Mở Bảng Điều Khiển Admin
+                </a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">
+                    <i class="bi bi-house me-1"></i> Về Trang chủ
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

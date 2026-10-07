@@ -1,0 +1,177 @@
+@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString() ?? "";
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString() ?? "";
+}
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Hệ thống Quản trị VTT Admin</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- AdminLTE Style -->
+    <link rel="stylesheet" href="~/css/adminlte.css" asp-append-version="true" />
+
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body class="admin-body">
+    <div class="admin-wrapper">
+        <!-- SIDEBAR -->
+        <aside class="admin-sidebar" id="adminSidebar">
+            <!-- Brand Logo -->
+            <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="brand-link">
+                <i class="bi bi-shield-check text-warning fs-3 me-2"></i>
+                <div class="lh-1">
+                    <span class="fw-bold tracking-wide">VTT ADMIN</span>
+                    <span class="badge bg-primary text-white ms-1 font-monospace" style="font-size: 0.65rem;">LTE 3.0</span>
+                </div>
+            </a>
+
+            <!-- User Panel -->
+            <div class="user-panel">
+                <img src="https://ui-avatars.com/api/?name=Vu+Tien+Tan&background=0D8ABC&color=fff&bold=true" class="user-avatar" alt="Admin Avatar" />
+                <div class="info lh-sm">
+                    <a href="#" class="d-block text-white text-decoration-none fw-semibold">Vũ Tiến Tân</a>
+                    <small class="text-success d-inline-flex align-items-center">
+                        <i class="bi bi-circle-fill me-1" style="font-size: 0.5rem;"></i> Trực tuyến (Admin)
+                    </small>
+                </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="nav-sidebar">
+                <div class="nav-header">BẢNG ĐIỀU KHIỂN</div>
+                <a class="nav-link @(currentController == "Dashboard" ? "active" : "")" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                    <i class="bi bi-speedometer2 text-info"></i>
+                    <span>Tổng quan (Dashboard)</span>
+                </a>
+
+                <div class="nav-header">QUẢN TRỊ DỮ LIỆU (CRUD)</div>
+                <a class="nav-link @(currentController == "Category" ? "active" : "")" asp-area="Admin" asp-controller="Category" asp-action="Index">
+                    <i class="bi bi-tags text-warning"></i>
+                    <span>Danh mục (Category)</span>
+                </a>
+                <a class="nav-link @(currentController == "Product" ? "active" : "")" asp-area="Admin" asp-controller="Product" asp-action="Index">
+                    <i class="bi bi-box-seam text-success"></i>
+                    <span>Sản phẩm (Product)</span>
+                </a>
+                <a class="nav-link @(currentController == "BannerBlog" ? "active" : "")" asp-area="Admin" asp-controller="BannerBlog" asp-action="Index">
+                    <i class="bi bi-newspaper text-danger"></i>
+                    <span>Banner / Blog</span>
+                </a>
+
+                <div class="nav-header">LIÊN KẾT HỆ THỐNG</div>
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-box-arrow-up-right text-primary"></i>
+                    <span>Xem Website Người dùng</span>
+                </a>
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="DemoMainLayout">
+                    <i class="bi bi-layout-text-window text-secondary"></i>
+                    <span>Layout phụ (_main.cshtml)</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="admin-main">
+            <!-- Top Navbar -->
+            <header class="admin-navbar">
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-outline-secondary btn-sm me-3 border-0" id="btnToggleSidebar" type="button" title="Thu gọn / Mở rộng menu">
+                        <i class="bi bi-list fs-5"></i>
+                    </button>
+                    <div class="d-none d-md-flex text-muted small align-items-center">
+                        <span class="badge bg-dark-subtle text-dark border me-2">ASP.NET Core 8 MVC</span>
+                        <span>Labguide 07: Quản trị Area Admin &amp; CRUD</span>
+                    </div>
+                </div>
+
+                <div class="d-flex align-items-center gap-2">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="btn btn-sm btn-outline-primary">
+                        <i class="bi bi-globe me-1"></i>Về Trang chủ
+                    </a>
+
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-light border dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle text-primary"></i>
+                            <span class="fw-semibold">Admin VTT</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow">
+                            <li><h6 class="dropdown-header">Tài khoản Quản trị</h6></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>Hồ sơ cá nhân</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Cài đặt hệ thống</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Breadcrumb & Header -->
+            <div class="admin-content-header bg-white border-bottom shadow-sm">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center">
+                    <div>
+                        <h4 class="m-0 fw-bold text-dark">@ViewData["Title"]</h4>
+                        <small class="text-muted">Khu vực quản trị hệ thống - K24CNT2 .NET Core</small>
+                    </div>
+                    <nav aria-label="breadcrumb" class="mt-2 mt-md-0">
+                        <ol class="breadcrumb m-0 small">
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="text-decoration-none">Admin</a></li>
+                            <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="@currentController" asp-action="Index" class="text-decoration-none">@currentController</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">@currentAction</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Content Body -->
+            <div class="admin-content">
+                @if (TempData["Success"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
+                        <i class="bi bi-check-circle-fill me-2 fs-5 align-middle"></i>
+                        <span>@TempData["Success"]</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                @if (TempData["Error"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2 fs-5 align-middle"></i>
+                        <span>@TempData["Error"]</span>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                @RenderBody()
+            </div>
+
+            <!-- Footer -->
+            <footer class="admin-footer text-center text-md-start d-flex flex-column flex-md-row justify-content-between align-items-center">
+                <div>
+                    <strong>Copyright &copy; 2026 <a href="#" class="text-decoration-none">VTT AdminLTE</a>.</strong> Toàn quyền bảo lưu.
+                </div>
+                <div class="small text-muted mt-2 mt-md-0">
+                    <b>Phiên bản</b> 3.2.0 | <strong>Lớp:</strong> K24CNT2
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle Sidebar Script
+        document.getElementById('btnToggleSidebar')?.addEventListener('click', function () {
+            document.getElementById('adminSidebar')?.classList.toggle('collapsed');
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

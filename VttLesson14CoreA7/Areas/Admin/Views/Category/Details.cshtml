@@ -1,0 +1,123 @@
+@model VttLesson14CoreA7.Models.Category
+
+@{
+    ViewData["Title"] = "Chi tiết Danh mục: " + Model.Name;
+}
+
+<div class="row g-4">
+    <div class="col-md-5">
+        <div class="admin-card">
+            <div class="admin-card-header bg-white border-bottom py-3">
+                <h5 class="card-title fw-bold text-info text-dark m-0">
+                    <i class="bi bi-info-circle me-2"></i>Thông tin Danh mục
+                </h5>
+            </div>
+            <div class="admin-card-body p-4">
+                <dl class="row mb-0">
+                    <dt class="col-sm-5 text-muted">Mã danh mục:</dt>
+                    <dd class="col-sm-7 fw-bold">#@Model.Id</dd>
+
+                    <dt class="col-sm-5 text-muted">Tên danh mục:</dt>
+                    <dd class="col-sm-7 fw-bold fs-5 text-primary">@Model.Name</dd>
+
+                    <dt class="col-sm-5 text-muted">Trạng thái:</dt>
+                    <dd class="col-sm-7">
+                        @if (Model.Status == 1)
+                        {
+                            <span class="badge bg-success-subtle text-success border px-2 py-1">
+                                <i class="bi bi-check-circle me-1"></i> Hiển thị
+                            </span>
+                        }
+                        else
+                        {
+                            <span class="badge bg-secondary-subtle text-secondary border px-2 py-1">
+                                <i class="bi bi-eye-slash me-1"></i> Ẩn
+                            </span>
+                        }
+                    </dd>
+
+                    <dt class="col-sm-5 text-muted">Ngày tạo:</dt>
+                    <dd class="col-sm-7">@Model.CreatedDate.ToString("dd/MM/yyyy HH:mm:ss")</dd>
+
+                    <dt class="col-sm-5 text-muted">Tổng sản phẩm:</dt>
+                    <dd class="col-sm-7">
+                        <span class="badge bg-primary">@(Model.Products?.Count ?? 0) sản phẩm</span>
+                    </dd>
+                </dl>
+
+                <div class="mt-4 pt-3 border-top d-flex gap-2">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning text-dark fw-semibold">
+                        <i class="bi bi-pencil-square me-1"></i> Chỉnh sửa
+                    </a>
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left me-1"></i> Quay lại
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-7">
+        <div class="admin-card">
+            <div class="admin-card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center">
+                <h5 class="card-title fw-bold text-dark m-0">
+                    <i class="bi bi-box-seam me-2"></i>Sản phẩm thuộc danh mục (@(Model.Products?.Count ?? 0))
+                </h5>
+                <a asp-area="Admin" asp-controller="Product" asp-action="Create" class="btn btn-sm btn-outline-primary">
+                    <i class="bi bi-plus-lg me-1"></i>Thêm SP vào mục này
+                </a>
+            </div>
+            <div class="admin-card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Ảnh</th>
+                                <th>Tên sản phẩm</th>
+                                <th class="text-end">Giá bán</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model.Products == null || !Model.Products.Any())
+                            {
+                                <tr>
+                                    <td colspan="3" class="text-center py-4 text-muted">
+                                        Chưa có sản phẩm nào thuộc danh mục này.
+                                    </td>
+                                </tr>
+                            }
+                            else
+                            {
+                                @foreach (var p in Model.Products)
+                                {
+                                    <tr>
+                                        <td style="width: 50px;">
+                                            @if (!string.IsNullOrEmpty(p.Image))
+                                            {
+                                                <img src="@p.Image" alt="@p.Name" class="rounded border" style="width: 40px; height: 40px; object-fit: cover;" onerror="this.onerror=null;this.src='https://placehold.co/40x40?text=SP';" />
+                                            }
+                                            else
+                                            {
+                                                <div class="bg-light rounded border text-muted d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                    <i class="bi bi-image"></i>
+                                                </div>
+                                            }
+                                        </td>
+                                        <td>
+                                            <a asp-area="Admin" asp-controller="Product" asp-action="Details" asp-route-id="@p.Id" class="fw-semibold text-decoration-none text-dark">
+                                                @p.Name
+                                            </a>
+                                        </td>
+                                        <td class="text-end fw-bold text-danger">
+                                            @p.Price.ToString("N0") đ
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

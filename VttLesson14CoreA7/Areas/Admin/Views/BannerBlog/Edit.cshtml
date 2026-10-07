@@ -1,0 +1,111 @@
+@model VttLesson14CoreA7.Models.BannerBlog
+
+@{
+    ViewData["Title"] = "Chỉnh sửa: " + Model.Title;
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-9 col-lg-8">
+        <div class="admin-card">
+            <div class="admin-card-header bg-white border-bottom py-3">
+                <h5 class="card-title fw-bold text-warning text-dark m-0">
+                    <i class="bi bi-pencil-square me-2"></i>Chỉnh sửa @Model.Type #@Model.Id
+                </h5>
+            </div>
+            <div class="admin-card-body p-4">
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="Id" />
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 small" role="alert"></div>
+
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <label asp-for="Title" class="form-label fw-semibold"></label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="Type" class="form-label fw-semibold"></label>
+                            <select asp-for="Type" class="form-select">
+                                <option value="Banner">Banner quảng cáo</option>
+                                <option value="Blog">Bài viết / Blog tin tức</option>
+                            </select>
+                            <span asp-validation-for="Type" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="Description" class="form-label fw-semibold"></label>
+                            <textarea asp-for="Description" class="form-control" rows="4" maxlength="350"></textarea>
+                            <span asp-validation-for="Description" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Thay đổi tệp ảnh</label>
+                            <input type="file" name="imageFile" class="form-control" accept="image/*" id="imageFileInput" />
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="Image" class="form-label fw-semibold">Đường dẫn ảnh hiện tại</label>
+                            <input asp-for="Image" class="form-control" id="imageUrlInput" />
+                            <span asp-validation-for="Image" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="CreatedDate" class="form-label fw-semibold"></label>
+                            <input asp-for="CreatedDate" class="form-control" type="datetime-local" />
+                            <span asp-validation-for="CreatedDate" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6 d-flex align-items-center mt-4">
+                            <div class="form-check form-switch fs-6">
+                                <input class="form-check-input" type="checkbox" role="switch" asp-for="IsActive" />
+                                <label class="form-check-label fw-semibold" asp-for="IsActive">Kích hoạt hiển thị</label>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label fw-semibold text-muted">Ảnh đang dùng:</label>
+                            <div>
+                                <img id="imagePreview" src="@(string.IsNullOrEmpty(Model.Image) ? "https://placehold.co/600x200?text=No+Image" : Model.Image)" alt="Preview" class="rounded border shadow-sm" style="max-height: 180px; width: 100%; object-fit: cover;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center pt-4 mt-3 border-top">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-1"></i> Quay lại
+                        </a>
+                        <button type="submit" class="btn btn-warning text-dark fw-bold px-4">
+                            <i class="bi bi-check2-circle me-1"></i> Cập nhật thay đổi
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const fileInput = document.getElementById('imageFileInput');
+        const urlInput = document.getElementById('imageUrlInput');
+        const preview = document.getElementById('imagePreview');
+
+        fileInput.addEventListener('change', function () {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        urlInput.addEventListener('input', function () {
+            if (this.value.trim().length > 5) {
+                preview.src = this.value;
+            }
+        });
+    </script>
+}

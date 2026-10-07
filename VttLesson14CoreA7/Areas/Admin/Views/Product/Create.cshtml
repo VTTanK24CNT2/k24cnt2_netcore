@@ -1,0 +1,104 @@
+@model VttLesson14CoreA7.Models.Product
+
+@{
+    ViewData["Title"] = "Thêm mới Sản phẩm (Product)";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-9 col-lg-8">
+        <div class="admin-card">
+            <div class="admin-card-header bg-white border-bottom py-3">
+                <h5 class="card-title fw-bold text-success m-0">
+                    <i class="bi bi-box-seam me-2"></i>Thêm Sản phẩm Mới
+                </h5>
+            </div>
+            <div class="admin-card-body p-4">
+                <form asp-action="Create" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger py-2 small" role="alert"></div>
+
+                    <div class="row g-3">
+                        <div class="col-md-8">
+                            <label asp-for="Name" class="form-label fw-semibold"></label>
+                            <input asp-for="Name" class="form-control" placeholder="Nhập tên sản phẩm..." autofocus />
+                            <span asp-validation-for="Name" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label asp-for="CategoryId" class="form-label fw-semibold"></label>
+                            <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId">
+                                <option value="">-- Chọn danh mục --</option>
+                            </select>
+                            <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label asp-for="Price" class="form-label fw-semibold"></label>
+                            <div class="input-group">
+                                <input asp-for="Price" class="form-control" type="number" min="0" step="1000" placeholder="0" />
+                                <span class="input-group-text">VNĐ</span>
+                            </div>
+                            <span asp-validation-for="Price" class="text-danger small"></span>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Tải lên tệp ảnh</label>
+                            <input type="file" name="imageFile" class="form-control" accept="image/*" id="imageFileInput" />
+                            <div class="form-text">Định dạng .jpg, .png, .webp (tùy chọn)</div>
+                        </div>
+
+                        <div class="col-12">
+                            <label asp-for="Image" class="form-label fw-semibold">Hoặc nhập URL ảnh trực tiếp</label>
+                            <input asp-for="Image" class="form-control" placeholder="https://... hoặc /images/products/..." id="imageUrlInput" />
+                            <span asp-validation-for="Image" class="text-danger small"></span>
+                        </div>
+
+                        <!-- Image Preview -->
+                        <div class="col-12" id="previewContainer" style="display: none;">
+                            <label class="form-label fw-semibold text-muted">Xem trước ảnh:</label>
+                            <div>
+                                <img id="imagePreview" src="#" alt="Preview" class="rounded border shadow-sm" style="max-height: 150px; max-width: 200px; object-fit: contain;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center pt-4 mt-3 border-top">
+                        <a asp-action="Index" class="btn btn-outline-secondary">
+                            <i class="bi bi-arrow-left me-1"></i> Quay lại
+                        </a>
+                        <button type="submit" class="btn btn-success px-4 fw-semibold">
+                            <i class="bi bi-check-lg me-1"></i> Lưu Sản phẩm
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const fileInput = document.getElementById('imageFileInput');
+        const urlInput = document.getElementById('imageUrlInput');
+        const preview = document.getElementById('imagePreview');
+        const previewContainer = document.getElementById('previewContainer');
+
+        fileInput.addEventListener('change', function () {
+            if (this.files && this.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    previewContainer.style.display = 'block';
+                }
+                reader.readAsDataURL(this.files[0]);
+            }
+        });
+
+        urlInput.addEventListener('input', function () {
+            if (this.value.trim().length > 5) {
+                preview.src = this.value;
+                previewContainer.style.display = 'block';
+            }
+        });
+    </script>
+}
