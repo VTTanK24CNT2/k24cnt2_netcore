@@ -1,0 +1,45 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.KhachHang
+
+@{
+    ViewData["Title"] = "Xóa khách hàng";
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0 rounded-4 border-danger">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center gap-2 text-danger mb-3">
+                    <i class="bi bi-person-x-fill fs-3"></i>
+                    <h4 class="fw-bold mb-0">Xác nhận xóa khách hàng</h4>
+                </div>
+                <p class="text-muted">Bạn có chắc chắn muốn xóa hồ sơ khách hàng này khỏi hệ thống?</p>
+                <div class="alert alert-light border">
+                    <p class="mb-1"><strong>Mã KH:</strong> KH-@Model.MaKh</p>
+                    <p class="mb-1"><strong>Họ và tên:</strong> @Model.HoTen</p>
+                    <p class="mb-1"><strong>Số CCCD:</strong> @Model.SoCccd</p>
+                    <p class="mb-1"><strong>Số điện thoại:</strong> @Model.SoDienThoai</p>
+                    <p class="mb-0"><strong>Số hợp đồng:</strong> @Model.HopDongCams.Count</p>
+                </div>
+
+                @if (Model.HopDongCams.Any())
+                {
+                    <div class="alert alert-warning small">
+                        <i class="bi bi-exclamation-circle me-1"></i> Không thể xóa vì khách hàng đang có @Model.HopDongCams.Count hợp đồng cầm đồ liên kết!
+                    </div>
+                }
+
+                <form asp-action="Delete" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="MaKh" />
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-danger px-4" @(Model.HopDongCams.Any() ? "disabled" : "")>
+                            <i class="bi bi-trash me-1"></i> Xóa vĩnh viễn
+                        </button>
+                        <a asp-action="Index" class="btn btn-light px-4">Hủy bỏ</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

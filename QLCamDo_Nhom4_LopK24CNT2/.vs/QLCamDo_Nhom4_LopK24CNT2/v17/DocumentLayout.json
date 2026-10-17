@@ -1,0 +1,452 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\QLCamDo_Nhom4_LopK24CNT2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\giaodich\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\giaodich\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\khachhang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\khachhang\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\controllers\\hopdongcamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:controllers\\hopdongcamcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\controllers\\khachhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:controllers\\khachhangcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\taikhoan\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\taikhoan\\accessdenied.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:controllers\\taikhoancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\models\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:models\\taikhoan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\taikhoan\\dangnhap.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\taikhoan\\dangnhap.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\controllers\\giaodichcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:controllers\\giaodichcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\controllers\\taisancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:controllers\\taisancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\taisan\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\taisan\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\home\\customerdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\home\\customerdashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\giaodich\\inbiennhan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\giaodich\\inbiennhan.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\giaodich\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\giaodich\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\views\\giaodich\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:views\\giaodich\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\models\\viewmodels\\viewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:models\\viewmodels\\viewmodels.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\helpers\\interestcalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:helpers\\interestcalculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\helpers\\auditlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:helpers\\auditlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\controllers\\loaitaisancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:controllers\\loaitaisancontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\qlcamdo_nhom4_lopk24cnt2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:qlcamdo_nhom4_lopk24cnt2.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|e:\\qlcamdo_nhom4_lopk24cnt2\\models\\qlcamdonhom4lopk24cnt2context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA611BBA-7E7B-43A8-9219-A994010C5176}|QLCamDo_Nhom4_LopK24CNT2.csproj|solutionrelative:models\\qlcamdonhom4lopk24cnt2context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\KhachHang\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\KhachHang\\Index.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\KhachHang\\Index.cshtml",
+              "RelativeToolTip": "Views\\KhachHang\\Index.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-17T00:40:55.844Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccessDenied.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\TaiKhoan\\AccessDenied.cshtml",
+              "RelativeDocumentMoniker": "Views\\TaiKhoan\\AccessDenied.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\TaiKhoan\\AccessDenied.cshtml",
+              "RelativeToolTip": "Views\\TaiKhoan\\AccessDenied.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T15:02:47.573Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TaiKhoan.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Models\\TaiKhoan.cs",
+              "RelativeDocumentMoniker": "Models\\TaiKhoan.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Models\\TaiKhoan.cs",
+              "RelativeToolTip": "Models\\TaiKhoan.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-13T15:01:09.992Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DangNhap.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\TaiKhoan\\DangNhap.cshtml",
+              "RelativeDocumentMoniker": "Views\\TaiKhoan\\DangNhap.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\TaiKhoan\\DangNhap.cshtml",
+              "RelativeToolTip": "Views\\TaiKhoan\\DangNhap.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-13T15:00:19.486Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\TaiSan\\Delete.cshtml",
+              "RelativeDocumentMoniker": "Views\\TaiSan\\Delete.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\TaiSan\\Delete.cshtml",
+              "RelativeToolTip": "Views\\TaiSan\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-09T05:35:45.725Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-09T05:35:42.403Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-09T05:35:40.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Privacy.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-09T05:35:35.663Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-09T05:35:32.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "CustomerDashboard.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\Home\\CustomerDashboard.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\CustomerDashboard.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\Home\\CustomerDashboard.cshtml",
+              "RelativeToolTip": "Views\\Home\\CustomerDashboard.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-09T05:35:30.322Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\GiaoDich\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\GiaoDich\\Index.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\GiaoDich\\Index.cshtml",
+              "RelativeToolTip": "Views\\GiaoDich\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-09T05:35:19.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "InBienNhan.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\GiaoDich\\InBienNhan.cshtml",
+              "RelativeDocumentMoniker": "Views\\GiaoDich\\InBienNhan.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\GiaoDich\\InBienNhan.cshtml",
+              "RelativeToolTip": "Views\\GiaoDich\\InBienNhan.cshtml",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-09T05:35:08.757Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\GiaoDich\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\GiaoDich\\Details.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\GiaoDich\\Details.cshtml",
+              "RelativeToolTip": "Views\\GiaoDich\\Details.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-09T05:35:02.62Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\GiaoDich\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\GiaoDich\\Create.cshtml",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Views\\GiaoDich\\Create.cshtml",
+              "RelativeToolTip": "Views\\GiaoDich\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-10-09T05:34:58.936Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ViewModels.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Models\\ViewModels\\ViewModels.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\ViewModels.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Models\\ViewModels\\ViewModels.cs",
+              "RelativeToolTip": "Models\\ViewModels\\ViewModels.cs",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T05:34:40.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "InterestCalculator.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Helpers\\InterestCalculator.cs",
+              "RelativeDocumentMoniker": "Helpers\\InterestCalculator.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Helpers\\InterestCalculator.cs",
+              "RelativeToolTip": "Helpers\\InterestCalculator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T05:34:33.787Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "AuditLogger.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Helpers\\AuditLogger.cs",
+              "RelativeDocumentMoniker": "Helpers\\AuditLogger.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Helpers\\AuditLogger.cs",
+              "RelativeToolTip": "Helpers\\AuditLogger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T05:34:32.496Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TaiSanController.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\TaiSanController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TaiSanController.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\TaiSanController.cs",
+              "RelativeToolTip": "Controllers\\TaiSanController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T05:34:26.422Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TaiKhoanController.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\TaiKhoanController.cs",
+              "RelativeDocumentMoniker": "Controllers\\TaiKhoanController.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\TaiKhoanController.cs",
+              "RelativeToolTip": "Controllers\\TaiKhoanController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T05:34:23.603Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "LoaiTaiSanController.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\LoaiTaiSanController.cs",
+              "RelativeDocumentMoniker": "Controllers\\LoaiTaiSanController.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\LoaiTaiSanController.cs",
+              "RelativeToolTip": "Controllers\\LoaiTaiSanController.cs",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAiwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T05:34:18.979Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "KhachHangController.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\KhachHangController.cs",
+              "RelativeDocumentMoniker": "Controllers\\KhachHangController.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\KhachHangController.cs",
+              "RelativeToolTip": "Controllers\\KhachHangController.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAowEkAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T05:34:14.616Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T05:34:04.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HopDongCamController.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\HopDongCamController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HopDongCamController.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\HopDongCamController.cs",
+              "RelativeToolTip": "Controllers\\HopDongCamController.cs",
+              "ViewState": "AgIAAFsAAAAAwrxbL60qwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T05:34:02.641Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GiaoDichController.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\GiaoDichController.cs",
+              "RelativeDocumentMoniker": "Controllers\\GiaoDichController.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Controllers\\GiaoDichController.cs",
+              "RelativeToolTip": "Controllers\\GiaoDichController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T05:33:58.215Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Microsoft.Common.CurrentVersion.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
+              "ViewState": "AgIAAP4UAAAAAAAAAAAowBEVAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2026-10-09T05:15:59.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "QlcamDoNhom4LopK24cnt2Context.cs",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Models\\QlcamDoNhom4LopK24cnt2Context.cs",
+              "RelativeDocumentMoniker": "Models\\QlcamDoNhom4LopK24cnt2Context.cs",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\Models\\QlcamDoNhom4LopK24cnt2Context.cs",
+              "RelativeToolTip": "Models\\QlcamDoNhom4LopK24cnt2Context.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-09T04:35:24.803Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "QLCamDo_Nhom4_LopK24CNT2.csproj",
+              "DocumentMoniker": "E:\\QLCamDo_Nhom4_LopK24CNT2\\QLCamDo_Nhom4_LopK24CNT2.csproj",
+              "RelativeDocumentMoniker": "QLCamDo_Nhom4_LopK24CNT2.csproj",
+              "ToolTip": "E:\\QLCamDo_Nhom4_LopK24CNT2\\QLCamDo_Nhom4_LopK24CNT2.csproj",
+              "RelativeToolTip": "QLCamDo_Nhom4_LopK24CNT2.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-10-09T04:32:34.042Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

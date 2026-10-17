@@ -1,0 +1,156 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.KhachHang
+
+@{
+    ViewData["Title"] = "Cổng thông tin khách hàng - " + Model.HoTen;
+    Layout = "_Layout";
+    var today = DateOnly.FromDateTime(DateTime.Now);
+}
+
+<div class="mb-4">
+    <div class="card shadow-sm border-0 rounded-4 bg-primary text-white p-4" style="background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);">
+        <div class="row align-items-center">
+            <div class="col-md-3 text-center text-md-start mb-3 mb-md-0">
+                @if (!string.IsNullOrEmpty(Model.AnhCccd))
+                {
+                    <a href="@Model.AnhCccd" target="_blank" title="Bấm để xem ảnh CCCD gốc">
+                        <img src="@Model.AnhCccd" class="rounded-3 border border-2 border-white shadow" style="max-height: 110px; max-width: 160px; object-fit: contain; background: #fff;" alt="CCCD của bạn" />
+                    </a>
+                }
+                else
+                {
+                    <div class="p-3 bg-white bg-opacity-10 rounded-circle d-inline-flex"><i class="bi bi-person fs-1"></i></div>
+                }
+            </div>
+            <div class="col-md-5">
+                <span class="badge bg-white text-primary px-3 py-1 fw-bold mb-2">CỔNG TRA CỨU KHÁCH HÀNG</span>
+                <h3 class="fw-bold mb-1">Xin chào, @Model.HoTen!</h3>
+                <p class="mb-0 text-white-50">CCCD: <strong class="text-white font-monospace">@Model.SoCccd</strong> | SĐT: <strong class="text-white">@Model.SoDienThoai</strong></p>
+                <small class="badge bg-success bg-opacity-75 text-white mt-2"><i class="bi bi-check-circle me-1"></i>Đã xác thực CCCD điện tử</small>
+            </div>
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <a asp-controller="TaiSan" asp-action="ThanhLy" class="btn btn-warning text-dark fw-bold shadow-sm">
+                    <i class="bi bi-tag-fill me-1"></i>Kho Tài Sản Thanh Lý &rarr;
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mb-4">
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+            <span class="text-muted small fw-semibold">TỔNG HỢP ĐỒNG CỦA BẠN</span>
+            <h3 class="fw-bold text-dark mt-2 mb-0">@Model.HopDongCams.Count Hợp đồng</h3>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+            <span class="text-muted small fw-semibold">TỔNG TIỀN VAY CẦM CỐ</span>
+            <h3 class="fw-bold text-primary mt-2 mb-0">
+                @Model.HopDongCams.Where(h => h.TrangThai == "đang cầm" || h.TrangThai == "quá hạn").Sum(h => h.TienCam).ToString("N0") VNĐ
+            </h3>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+            <span class="text-muted small fw-semibold">TỔNG LÃI TẠM TÍNH HÔM NAY</span>
+            <h3 class="fw-bold text-danger mt-2 mb-0">
+                @{
+                    decimal tongLai = 0;
+                    foreach (var hd in Model.HopDongCams.Where(h => h.TrangThai == "đang cầm" || h.TrangThai == "quá hạn"))
+                    {
+                        tongLai += QLCamDo_Nhom4_LopK24CNT2.Helpers.InterestCalculator.GetCurrentInterest(hd);
+                    }
+                }
+                @tongLai.ToString("N0") VNĐ
+            </h3>
+        </div>
+    </div>
+</div>
+
+<!-- Danh sách hợp đồng của khách hàng -->
+<div class="card shadow-sm border-0 rounded-4 mb-4">
+    <div class="card-body p-4">
+        <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-file-earmark-text text-primary me-2"></i>Các Hợp Đồng Cầm Đồ Của Bạn</h5>
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th class="ps-3">Mã HĐ</th>
+                        <th>Tài sản cầm cố</th>
+                        <th>Tiền gốc</th>
+                        <th>Hạn chuộc</th>
+                        <th>Lãi tạm tính</th>
+                        <th>Đã đóng</th>
+                        <th>Trạng thái</th>
+                        <th class="text-end pe-3">Xem & In</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (!Model.HopDongCams.Any())
+                    {
+                        <tr>
+                            <td colspan="8" class="text-center py-4 text-muted">Bạn chưa có hợp đồng cầm đồ nào.</td>
+                        </tr>
+                    }
+                    else
+                    {
+                        @foreach (var hd in Model.HopDongCams.OrderByDescending(h => h.MaHd))
+                        {
+                            var laiTamTinh = QLCamDo_Nhom4_LopK24CNT2.Helpers.InterestCalculator.GetCurrentInterest(hd);
+                            var daDong = hd.GiaoDiches.Where(g => g.LoaiGd == "đóng lãi" || g.LoaiGd == "gia hạn").Sum(g => g.SoTien);
+                            var ts = hd.TaiSans.FirstOrDefault();
+                            var tsImg = ts?.AnhTaiSan?.Split(';', StringSplitOptions.RemoveEmptyEntries).FirstOrDefault();
+
+                            <tr>
+                                <td class="ps-3 fw-bold">HD-@hd.MaHd</td>
+                                <td>
+                                    <div class="d-flex align-items-center gap-2">
+                                        @if (!string.IsNullOrEmpty(tsImg))
+                                        {
+                                            <img src="@tsImg" class="asset-thumbnail-sm" alt="@ts?.TenTaiSan" />
+                                        }
+                                        <div>
+                                            <span class="fw-semibold text-dark">@(ts?.TenTaiSan ?? "Tài sản")</span>
+                                            <div class="small text-muted">Định giá: @((ts?.GiaTriDinhGia ?? 0).ToString("N0")) đ</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="fw-bold text-primary">@hd.TienCam.ToString("N0") đ</td>
+                                <td>@hd.HanChuoc.ToString("dd/MM/yyyy")</td>
+                                <td class="text-danger fw-bold">@laiTamTinh.ToString("N0") đ</td>
+                                <td class="text-success fw-bold">@daDong.ToString("N0") đ</td>
+                                <td>
+                                    @if (hd.TrangThai == "đang cầm")
+                                    {
+                                        <span class="badge badge-status-dangcam">Đang cầm</span>
+                                    }
+                                    else if (hd.TrangThai == "quá hạn")
+                                    {
+                                        <span class="badge badge-status-quahan">Quá hạn</span>
+                                    }
+                                    else if (hd.TrangThai == "thanh lý")
+                                    {
+                                        <span class="badge badge-status-thanhly">Thanh lý</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge badge-status-dachuoc">Đã chuộc</span>
+                                    }
+                                </td>
+                                <td class="text-end pe-3">
+                                    <a asp-controller="HopDongCam" asp-action="Details" asp-route-id="@hd.MaHd" class="btn btn-sm btn-outline-primary">
+                                        <i class="bi bi-eye me-1"></i>Chi tiết
+                                    </a>
+                                    <a asp-controller="HopDongCam" asp-action="InHopDong" asp-route-id="@hd.MaHd" target="_blank" class="btn btn-sm btn-outline-secondary">
+                                        <i class="bi bi-printer"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

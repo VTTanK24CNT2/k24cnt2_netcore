@@ -1,0 +1,35 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.TaiSan
+
+@{
+    ViewData["Title"] = "Xóa tài sản";
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0 rounded-4 border-danger">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center gap-2 text-danger mb-3">
+                    <i class="bi bi-trash-fill fs-3"></i>
+                    <h4 class="fw-bold mb-0">Xác nhận xóa tài sản</h4>
+                </div>
+                <p class="text-muted">Bạn có chắc chắn muốn xóa tài sản này khỏi cơ sở dữ liệu?</p>
+                <div class="alert alert-light border">
+                    <p class="mb-1"><strong>Mã tài sản:</strong> TS-@Model.MaTs</p>
+                    <p class="mb-1"><strong>Tên tài sản:</strong> @Model.TenTaiSan</p>
+                    <p class="mb-1"><strong>Loại:</strong> @Model.MaLoaiNavigation?.TenLoai</p>
+                    <p class="mb-0"><strong>Hợp đồng liên kết:</strong> HD-@Model.MaHd</p>
+                </div>
+
+                <form asp-action="Delete" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="MaTs" />
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-danger px-4"><i class="bi bi-trash me-1"></i>Xóa vĩnh viễn</button>
+                        <a asp-action="Index" class="btn btn-light px-4">Hủy bỏ</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

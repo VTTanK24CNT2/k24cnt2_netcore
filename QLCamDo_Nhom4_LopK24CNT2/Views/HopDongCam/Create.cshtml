@@ -1,0 +1,279 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.ViewModels.HopDongCreateViewModel
+
+@{
+    ViewData["Title"] = "Lập hợp đồng cầm đồ mới";
+    Layout = "_Layout";
+    var loaiList = ViewBag.LoaiTaiSanData as List<QLCamDo_Nhom4_LopK24CNT2.Models.LoaiTaiSan> ?? new();
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+                    <div>
+                        <h4 class="fw-bold mb-1"><i class="bi bi-file-earmark-plus text-primary me-2"></i>Lập Hợp Đồng Cầm Đồ Mới</h4>
+                        <p class="text-muted small mb-0">Hệ thống tự động kiểm tra định giá, thời hạn tối đa và tính lãi dự kiến</p>
+                    </div>
+                    <div class="d-flex gap-2">
+                        <button type="button" id="btnSaveDraft" class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-cloud-arrow-up me-1"></i>Lưu nháp (Session)
+                        </button>
+                        <button type="button" id="btnLoadDraft" class="btn btn-outline-info btn-sm">
+                            <i class="bi bi-cloud-arrow-down me-1"></i>Nạp nháp
+                        </button>
+                    </div>
+                </div>
+
+                <form asp-action="Create" method="post" enctype="multipart/form-data" id="contractForm">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+                    <!-- Phần 1: Khách hàng -->
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-primary mb-3"><i class="bi bi-person me-2"></i>1. Khách hàng cầm đồ</h6>
+                        <div class="row">
+                            <div class="col-md-9 mb-2">
+                                <label asp-for="MaKh" class="form-label fw-semibold"></label>
+                                <select asp-for="MaKh" class="form-select" asp-items="ViewBag.KhachHangs">
+                                    <option value="">-- Chọn khách hàng --</option>
+                                </select>
+                                <span asp-validation-for="MaKh" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-3 mb-2 d-flex align-items-end">
+                                <a asp-controller="KhachHang" asp-action="Create" target="_blank" class="btn btn-outline-primary w-100">
+                                    <i class="bi bi-plus-lg me-1"></i>Thêm khách mới
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phần 2: Thông tin tài sản cầm cố -->
+                    <div class="mb-4 p-3 bg-light rounded-3">
+                        <h6 class="fw-bold text-primary mb-3"><i class="bi bi-box-seam me-2"></i>2. Thông tin tài sản & Định giá</h6>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="MaLoai" class="form-label fw-semibold"></label>
+                                <select asp-for="MaLoai" class="form-select" id="selectMaLoai" asp-items="ViewBag.LoaiTaiSans"></select>
+                                <span asp-validation-for="MaLoai" class="text-danger small"></span>
+                                <div id="loaiInfoNotice" class="form-text small text-primary mt-1"></div>
+                            </div>
+                            <div class="col-md-5 mb-3">
+                                <label asp-for="TenTaiSan" class="form-label fw-semibold"></label>
+                                <input asp-for="TenTaiSan" class="form-control" placeholder="Ví dụ: Xe Honda SH 150i 2022 màu đen" />
+                                <span asp-validation-for="TenTaiSan" class="text-danger small"></span>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label asp-for="GiaTriDinhGia" class="form-label fw-semibold"></label>
+                                <div class="input-group">
+                                    <input asp-for="GiaTriDinhGia" id="txtDinhGia" type="number" class="form-control" placeholder="10000000" />
+                                    <span class="input-group-text">đ</span>
+                                </div>
+                                <span asp-validation-for="GiaTriDinhGia" class="text-danger small"></span>
+                                <div class="form-text small text-muted" id="lblMaxLoan">Tối đa vay (80%): 0 đ</div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="MoTaTinhTrang" class="form-label fw-semibold"></label>
+                            <textarea asp-for="MoTaTinhTrang" id="txtMoTa" rows="3" class="form-control" placeholder="Mô tả chi tiết tình trạng máy móc, ngoại hình, số seri/IMEI, phụ kiện đi kèm..."></textarea>
+                        </div>
+
+                        <div class="mb-2">
+                            <label class="form-label fw-semibold">Ảnh chụp tài sản (chọn nhiều ảnh)</label>
+                            <input asp-for="AnhTaiSanFiles" type="file" multiple class="form-control" accept="image/*" />
+                            <div class="form-text small">Hỗ trợ tải lên nhiều góc chụp (mặt trước, số khung/máy, màn hình...)</div>
+                        </div>
+                    </div>
+
+                    <!-- Phần 3: Điều khoản hợp đồng & Số tiền cầm -->
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-primary mb-3"><i class="bi bi-cash-coin me-2"></i>3. Số tiền cầm & Lãi suất</h6>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="TienCam" class="form-label fw-semibold"></label>
+                                <div class="input-group">
+                                    <input asp-for="TienCam" id="txtTienCam" type="number" class="form-control" placeholder="8000000" />
+                                    <span class="input-group-text">đ</span>
+                                </div>
+                                <span asp-validation-for="TienCam" class="text-danger small"></span>
+                                <div id="lblWarning80" class="small text-danger fw-semibold mt-1" style="display:none;">
+                                    <i class="bi bi-exclamation-triangle me-1"></i>Vượt quá 80% định giá!
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="NgayCam" class="form-label fw-semibold"></label>
+                                <input asp-for="NgayCam" id="txtNgayCam" type="date" class="form-control" />
+                                <span asp-validation-for="NgayCam" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="HanChuoc" class="form-label fw-semibold"></label>
+                                <input asp-for="HanChuoc" id="txtHanChuoc" type="date" class="form-control" />
+                                <span asp-validation-for="HanChuoc" class="text-danger small"></span>
+                                <div id="lblDaysCount" class="form-text small text-info mt-1"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label asp-for="LaiSuat" class="form-label fw-semibold"></label>
+                                <div class="input-group">
+                                    <input asp-for="LaiSuat" id="txtLaiSuat" type="number" step="0.01" class="form-control" />
+                                    <span class="input-group-text">%/ngày</span>
+                                </div>
+                                <span asp-validation-for="LaiSuat" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-8 mb-3">
+                                <div class="p-3 bg-primary bg-opacity-10 rounded-3 border border-primary border-opacity-25 h-100 d-flex flex-column justify-content-center">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span class="text-secondary fw-semibold">Dự tính lãi cả kỳ (<span id="lblSoNgayText">0</span> ngày):</span>
+                                        <span id="lblTienLaiDuKien" class="fs-5 fw-bold text-danger">0 đ</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-1">
+                                        <span class="text-secondary small">Tổng tiền chuộc ước tính:</span>
+                                        <span id="lblTongTienChuoc" class="fw-bold text-dark">0 đ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex gap-2 pt-3 border-top">
+                        <button type="submit" class="btn btn-primary px-4 py-2 rounded-3 fw-semibold">
+                            <i class="bi bi-file-earmark-check me-1"></i>Lập và Ký hợp đồng
+                        </button>
+                        <a asp-action="Index" class="btn btn-light px-4 py-2 rounded-3">Hủy bỏ</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Dữ liệu loại tài sản từ Controller
+        const loaiData = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(loaiList.Select(l => new {
+            id = l.MaLoai,
+            rate = l.LaiSuatNgay,
+            maxDays = l.SoNgayToiDa,
+            name = l.TenLoai
+        })));
+
+        function updateLoaiInfo() {
+            const selectedId = parseInt($('#selectMaLoai').val());
+            const loai = loaiData.find(x => x.id === selectedId);
+            if (loai) {
+                $('#txtLaiSuat').val(loai.rate);
+                $('#loaiInfoNotice').html(`<i class="bi bi-info-circle me-1"></i>Lãi chuẩn: <b>${loai.rate}%/ngày</b> | Tối đa: <b>${loai.maxDays} ngày</b>`);
+            }
+            recalc();
+        }
+
+        function recalc() {
+            const dinhGia = parseFloat($('#txtDinhGia').val()) || 0;
+            const tienCam = parseFloat($('#txtTienCam').val()) || 0;
+            const laiSuat = parseFloat($('#txtLaiSuat').val()) || 0;
+
+            const maxLoan = dinhGia * 0.8;
+            $('#lblMaxLoan').text(`Tối đa vay (80%): ${maxLoan.toLocaleString('vi-VN')} đ`);
+
+            if (tienCam > maxLoan && maxLoan > 0) {
+                $('#lblWarning80').show();
+            } else {
+                $('#lblWarning80').hide();
+            }
+
+            const ngayCamStr = $('#txtNgayCam').val();
+            const hanChuocStr = $('#txtHanChuoc').val();
+
+            if (ngayCamStr && hanChuocStr) {
+                const d1 = new Date(ngayCamStr);
+                const d2 = new Date(hanChuocStr);
+                const diffTime = d2 - d1;
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                if (diffDays > 0) {
+                    $('#lblDaysCount').text(`Thời hạn cầm: ${diffDays} ngày`);
+                    $('#lblSoNgayText').text(diffDays);
+
+                    // Lãi = Tiền cầm * (Lãi suất / 100) * số ngày
+                    const tienLai = Math.round(tienCam * (laiSuat / 100) * diffDays);
+                    const tong = tienCam + tienLai;
+
+                    $('#lblTienLaiDuKien').text(tienLai.toLocaleString('vi-VN') + ' đ');
+                    $('#lblTongTienChuoc').text(tong.toLocaleString('vi-VN') + ' đ');
+                } else {
+                    $('#lblDaysCount').html('<span class="text-danger">Hạn chuộc phải sau ngày cầm!</span>');
+                    $('#lblTienLaiDuKien').text('0 đ');
+                    $('#lblTongTienChuoc').text('0 đ');
+                }
+            }
+        }
+
+        $('#selectMaLoai').on('change', updateLoaiInfo);
+        $('#txtDinhGia, #txtTienCam, #txtLaiSuat, #txtNgayCam, #txtHanChuoc').on('input change', recalc);
+
+        // Lưu nháp vào Session
+        $('#btnSaveDraft').on('click', function () {
+            const draft = {
+                MaKh: parseInt($('#MaKh').val()) || 0,
+                MaLoai: parseInt($('#selectMaLoai').val()) || 0,
+                TenTaiSan: $('#TenTaiSan').val(),
+                GiaTriDinhGia: parseFloat($('#txtDinhGia').val()) || 0,
+                MoTaTinhTrang: $('#txtMoTa').val(),
+                NgayCam: $('#txtNgayCam').val(),
+                HanChuoc: $('#txtHanChuoc').val(),
+                TienCam: parseFloat($('#txtTienCam').val()) || 0,
+                LaiSuat: parseFloat($('#txtLaiSuat').val()) || 0
+            };
+
+            $.ajax({
+                url: '/HopDongCam/SaveDraft',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(draft),
+                success: function (res) {
+                    alert('Đã lưu bản nháp hợp đồng vào Session thành công!');
+                }
+            });
+        });
+
+        // Nạp nháp từ Session
+        $('#btnLoadDraft').on('click', function () {
+            $.ajax({
+                url: '/HopDongCam/LoadDraft',
+                type: 'GET',
+                success: function (data) {
+                    if (data && data.MaKh) {
+                        $('#MaKh').val(data.MaKh);
+                        $('#selectMaLoai').val(data.MaLoai);
+                        $('#TenTaiSan').val(data.TenTaiSan);
+                        $('#txtDinhGia').val(data.GiaTriDinhGia);
+                        $('#txtMoTa').val(data.MoTaTinhTrang);
+                        if (data.NgayCam) $('#txtNgayCam').val(data.NgayCam);
+                        if (data.HanChuoc) $('#txtHanChuoc').val(data.HanChuoc);
+                        $('#txtTienCam').val(data.TienCam);
+                        $('#txtLaiSuat').val(data.LaiSuat);
+                        updateLoaiInfo();
+                        alert('Đã nạp lại bản nháp từ Session!');
+                    } else {
+                        alert('Không tìm thấy dữ liệu nháp trong Session!');
+                    }
+                },
+                error: function () {
+                    alert('Không có bản nháp trong Session!');
+                }
+            });
+        });
+
+        // Khởi tạo ban đầu
+        $(document).ready(function () {
+            updateLoaiInfo();
+        });
+    </script>
+}

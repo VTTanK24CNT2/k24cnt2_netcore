@@ -1,0 +1,92 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.TaiSan
+
+@{
+    ViewData["Title"] = "Chi tiết tài sản: " + Model.TenTaiSan;
+    Layout = "_Layout";
+    var images = Model.AnhTaiSan?.Split(';', StringSplitOptions.RemoveEmptyEntries) ?? Array.Empty<string>();
+}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                        <span class="badge bg-light text-dark border mb-2">@Model.MaLoaiNavigation?.TenLoai</span>
+                        <h3 class="fw-bold text-dark mb-0">@Model.TenTaiSan</h3>
+                    </div>
+                    <span class="badge bg-secondary fs-6">Mã TS-@Model.MaTs</span>
+                </div>
+                <hr />
+
+                <!-- Thư viện hình ảnh thực tế chất lượng cao -->
+                @if (images.Any())
+                {
+                    var mainPhoto = images.First();
+                    <div class="mb-4">
+                        <h6 class="fw-bold text-secondary mb-2"><i class="bi bi-camera me-1"></i>Hình ảnh chụp tài sản thực tế:</h6>
+                        <div class="asset-img-container shadow-sm mb-3" style="height: 340px;">
+                            <a href="@mainPhoto" target="_blank" title="Xem ảnh gốc">
+                                <img src="@mainPhoto" class="rounded-3" alt="@Model.TenTaiSan" />
+                            </a>
+                        </div>
+                        @if (images.Length > 1)
+                        {
+                            <div class="d-flex flex-wrap gap-2">
+                                @foreach (var img in images)
+                                {
+                                    <a href="@img" target="_blank">
+                                        <img src="@img" class="asset-thumbnail-sm shadow-sm" alt="Thumbnail" />
+                                    </a>
+                                }
+                            </div>
+                        }
+                    </div>
+                }
+
+                <div class="row g-3 mb-4">
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded-3">
+                            <small class="text-muted d-block">Giá trị định giá ban đầu</small>
+                            <span class="fs-4 fw-bold text-primary">@((Model.GiaTriDinhGia ?? 0).ToString("N0")) VNĐ</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded-3">
+                            <small class="text-muted d-block">Hợp đồng cầm cố liên kết</small>
+                            <span class="fs-4 fw-bold text-dark">
+                                <a asp-controller="HopDongCam" asp-action="Details" asp-route-id="@Model.MaHd" class="text-decoration-none">
+                                    HD-@Model.MaHd
+                                </a>
+                            </span>
+                            <small class="text-muted d-block mt-1">Khách: @Model.MaHdNavigation?.MaKhNavigation?.HoTen</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="fw-bold text-secondary mb-2">Mô tả tình trạng & Phụ kiện:</h6>
+                    <div class="p-3 bg-light rounded-3">
+                        @if (!string.IsNullOrEmpty(Model.MoTaTinhTrang))
+                        {
+                            <div>@Html.Raw(Model.MoTaTinhTrang)</div>
+                        }
+                        else
+                        {
+                            <span class="text-muted">Chưa có thông tin mô tả chi tiết.</span>
+                        }
+                    </div>
+                </div>
+
+                <div class="d-flex gap-2">
+                    @if (!User.IsInRole("Khách hàng"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@Model.MaTs" class="btn btn-warning"><i class="bi bi-pencil me-1"></i>Chỉnh sửa</a>
+                    }
+                    <a asp-controller="HopDongCam" asp-action="Details" asp-route-id="@Model.MaHd" class="btn btn-outline-primary">Xem hợp đồng</a>
+                    <a asp-action="Index" class="btn btn-light">Danh sách tài sản</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

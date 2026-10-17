@@ -1,0 +1,91 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Đăng ký tài khoản khách hàng";
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center mt-3 mb-4">
+    <div class="col-md-7 col-lg-6">
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+                <div class="text-center mb-4">
+                    <div class="p-3 bg-success bg-opacity-10 text-success rounded-circle d-inline-flex mb-3">
+                        <i class="bi bi-person-check fs-1"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark">Đăng Ký Tài Khoản Khách Hàng</h3>
+                    <p class="text-muted small">Tra cứu hợp đồng và lịch sử đóng lãi của bạn tại Cầm đồ C</p>
+                </div>
+
+                <form asp-action="DangKy" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="TenDangNhap" class="form-label fw-semibold small text-secondary"></label>
+                            <input asp-for="TenDangNhap" class="form-control" placeholder="Tên đăng nhập" />
+                            <span asp-validation-for="TenDangNhap" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="HoTen" class="form-label fw-semibold small text-secondary"></label>
+                            <input asp-for="HoTen" class="form-control" placeholder="Họ và tên" />
+                            <span asp-validation-for="HoTen" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="MatKhau" class="form-label fw-semibold small text-secondary"></label>
+                            <input asp-for="MatKhau" type="password" class="form-control" placeholder="Tối thiểu 6 ký tự" />
+                            <span asp-validation-for="MatKhau" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="XacNhanMatKhau" class="form-label fw-semibold small text-secondary"></label>
+                            <input asp-for="XacNhanMatKhau" type="password" class="form-control" placeholder="Nhập lại mật khẩu" />
+                            <span asp-validation-for="XacNhanMatKhau" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="SoCccd" class="form-label fw-semibold small text-secondary"></label>
+                            <input asp-for="SoCccd" class="form-control" placeholder="12 chữ số" maxlength="12" />
+                            <span asp-validation-for="SoCccd" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="SoDienThoai" class="form-label fw-semibold small text-secondary"></label>
+                            <input asp-for="SoDienThoai" class="form-control" placeholder="09xxxxxxxx" maxlength="10" />
+                            <span asp-validation-for="SoDienThoai" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="DiaChi" class="form-label fw-semibold small text-secondary"></label>
+                        <input asp-for="DiaChi" class="form-control" placeholder="Địa chỉ thường trú" />
+                        <span asp-validation-for="DiaChi" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="AnhCccdFile" class="form-label fw-semibold small text-secondary"></label>
+                        <input asp-for="AnhCccdFile" type="file" class="form-control" accept="image/*" />
+                        <div class="form-text small">Tải lên ảnh chụp mặt trước thẻ CCCD để nhân viên xác thực hồ sơ.</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2 rounded-3 fw-semibold">
+                        <i class="bi bi-person-plus me-1"></i> Hoàn tất đăng ký
+                    </button>
+
+                    <div class="text-center mt-3">
+                        <span class="small text-muted">Đã có tài khoản? </span>
+                        <a asp-action="DangNhap" class="small text-primary text-decoration-none fw-semibold">Đăng nhập ngay</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

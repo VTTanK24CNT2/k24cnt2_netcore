@@ -1,0 +1,72 @@
+@model IEnumerable<QLCamDo_Nhom4_LopK24CNT2.Models.LoaiTaiSan>
+
+@{
+    ViewData["Title"] = "Quản lý loại tài sản & Lãi suất";
+    Layout = "_Layout";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h3 class="fw-bold mb-1"><i class="bi bi-tags-fill text-primary me-2"></i>Danh mục Loại Tài Sản & Lãi Suất</h3>
+        <p class="text-muted small mb-0">Cấu hình biểu phí lãi suất ngày và giới hạn số ngày cầm tối đa cho từng nhóm tài sản</p>
+    </div>
+    <a asp-action="Create" class="btn btn-primary rounded-3">
+        <i class="bi bi-plus-lg me-1"></i>Thêm loại tài sản
+    </a>
+</div>
+
+<div class="card shadow-sm border-0 rounded-4 overflow-hidden">
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th class="ps-4">Mã</th>
+                    <th>Tên loại tài sản</th>
+                    <th>Lãi suất ngày (%/ngày)</th>
+                    <th>Lãi suất ước tính (%/tháng)</th>
+                    <th>Thời hạn tối đa</th>
+                    <th>Số tài sản liên kết</th>
+                    <th class="text-end pe-4">Thao tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="ps-4 fw-semibold text-secondary">#@item.MaLoai</td>
+                        <td class="fw-bold text-dark">@item.TenLoai</td>
+                        <td>
+                            <span class="badge bg-primary bg-opacity-10 text-primary fs-6 px-2 py-1">
+                                @item.LaiSuatNgay.ToString("0.00") %/ngày
+                            </span>
+                        </td>
+                        <td class="text-muted">
+                            ~@((item.LaiSuatNgay * 30).ToString("0.0")) %/tháng
+                        </td>
+                        <td>
+                            <span class="badge bg-light text-dark border">
+                                <i class="bi bi-calendar-event me-1"></i>@item.SoNgayToiDa ngày
+                            </span>
+                        </td>
+                        <td>
+                            <span class="badge bg-secondary">@item.TaiSans.Count tài sản</span>
+                        </td>
+                        <td class="text-end pe-4">
+                            <div class="btn-group btn-group-sm">
+                                <a asp-action="Details" asp-route-id="@item.MaLoai" class="btn btn-outline-info" title="Xem chi tiết">
+                                    <i class="bi bi-eye"></i>
+                                </a>
+                                <a asp-action="Edit" asp-route-id="@item.MaLoai" class="btn btn-outline-warning" title="Chỉnh sửa">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.MaLoai" class="btn btn-outline-danger" title="Xóa">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

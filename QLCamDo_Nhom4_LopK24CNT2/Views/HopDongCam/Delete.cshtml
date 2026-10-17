@@ -1,0 +1,54 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.HopDongCam
+
+@{
+    ViewData["Title"] = "Xóa hợp đồng HD-" + Model.MaHd;
+    Layout = "_Layout";
+    bool hasTransactions = Model.GiaoDiches.Any();
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card shadow-sm border-0 rounded-4 border-danger">
+            <div class="card-body p-4">
+                <div class="d-flex align-items-center gap-2 text-danger mb-3">
+                    <i class="bi bi-shield-x fs-3"></i>
+                    <h4 class="fw-bold mb-0">Xác nhận xóa Hợp đồng HD-@Model.MaHd</h4>
+                </div>
+
+                @if (hasTransactions)
+                {
+                    <div class="alert alert-danger">
+                        <i class="bi bi-x-circle-fill me-2 fs-5"></i>
+                        <strong>QUY ĐỊNH BẮT BUỘC:</strong>
+                        <p class="mb-0 mt-1">
+                            Hợp đồng này <strong>đã có @Model.GiaoDiches.Count giao dịch tài chính</strong> phát sinh (đóng lãi/chuộc/gia hạn).
+                            Theo yêu cầu bảo toàn dữ liệu kế toán, <strong>hợp đồng đã có giao dịch tuyệt đối không được phép xóa!</strong>
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-muted">Bạn có chắc chắn muốn xóa hợp đồng này không? Thao tác này không thể hoàn tác.</p>
+                }
+
+                <div class="alert alert-light border">
+                    <p class="mb-1"><strong>Khách hàng:</strong> @Model.MaKhNavigation.HoTen (CCCD: @Model.MaKhNavigation.SoCccd)</p>
+                    <p class="mb-1"><strong>Số tiền cầm:</strong> @Model.TienCam.ToString("N0") VNĐ</p>
+                    <p class="mb-1"><strong>Thời hạn:</strong> @Model.NgayCam.ToString("dd/MM/yyyy") - @Model.HanChuoc.ToString("dd/MM/yyyy")</p>
+                    <p class="mb-0"><strong>Trạng thái:</strong> @Model.TrangThai</p>
+                </div>
+
+                <form asp-action="Delete" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="MaHd" />
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-danger px-4" @(hasTransactions ? "disabled" : "")>
+                            <i class="bi bi-trash me-1"></i> Xóa hợp đồng
+                        </button>
+                        <a asp-action="Details" asp-route-id="@Model.MaHd" class="btn btn-light px-4">Quay lại</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

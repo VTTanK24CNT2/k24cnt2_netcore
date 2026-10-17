@@ -1,0 +1,63 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.TaiSan
+
+@{
+    ViewData["Title"] = "Chỉnh sửa thông tin tài sản";
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3"><i class="bi bi-pencil-square text-warning me-2"></i>Chỉnh sửa thông tin tài sản</h4>
+
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" asp-for="MaTs" />
+                    <input type="hidden" asp-for="MaHd" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="MaLoai" class="form-label fw-semibold"></label>
+                        <select asp-for="MaLoai" class="form-select" asp-items="ViewBag.MaLoai"></select>
+                        <span asp-validation-for="MaLoai" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="TenTaiSan" class="form-label fw-semibold"></label>
+                        <input asp-for="TenTaiSan" class="form-control" />
+                        <span asp-validation-for="TenTaiSan" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="GiaTriDinhGia" class="form-label fw-semibold"></label>
+                        <div class="input-group">
+                            <input asp-for="GiaTriDinhGia" type="number" class="form-control" />
+                            <span class="input-group-text">VNĐ</span>
+                        </div>
+                        <span asp-validation-for="GiaTriDinhGia" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="MoTaTinhTrang" class="form-label fw-semibold"></label>
+                        <textarea asp-for="MoTaTinhTrang" rows="4" class="form-control"></textarea>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Tải lên ảnh mới (chọn nếu muốn thêm/thay thế ảnh)</label>
+                        <input name="anhTaiSanFiles" type="file" multiple class="form-control" accept="image/*" />
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-warning text-dark px-4"><i class="bi bi-check-lg me-1"></i>Lưu thay đổi</button>
+                        <a asp-action="Details" asp-route-id="@Model.MaTs" class="btn btn-light px-4">Quay lại</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

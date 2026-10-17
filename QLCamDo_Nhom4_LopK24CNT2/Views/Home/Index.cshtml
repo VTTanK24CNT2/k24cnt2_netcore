@@ -1,0 +1,363 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.ViewModels.ThongKeViewModel
+
+@{
+    ViewData["Title"] = "Bảng điều khiển - Cầm Đồ C";
+    Layout = "_Layout";
+    var recentAuditLogs = ViewBag.RecentAuditLogs as string[] ?? Array.Empty<string>();
+}
+
+<!-- Tiêu đề & Nút thao tác nhanh -->
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+    <div>
+        <h3 class="fw-bold mb-1"><i class="bi bi-speedometer2 text-primary me-2"></i>Bảng Điều Khiển Nghiệp Vụ</h3>
+        <p class="text-muted small mb-0">Hệ thống thông tin quản lý hợp đồng cầm đồ, thu lãi và kiểm soát dòng tiền</p>
+    </div>
+    <div class="d-flex gap-2">
+        <a asp-controller="HopDongCam" asp-action="Create" class="btn btn-primary rounded-3 shadow-sm">
+            <i class="bi bi-file-earmark-plus me-1"></i>Lập hợp đồng mới
+        </a>
+        <a asp-controller="GiaoDich" asp-action="Create" class="btn btn-success rounded-3 shadow-sm">
+            <i class="bi bi-cash me-1"></i>Thu lãi / Chuộc đồ
+        </a>
+    </div>
+</div>
+
+<!-- 4 Thẻ chỉ số quan trọng (KPI cards) -->
+<div class="row g-3 mb-4">
+    <!-- Tiền đang cho vay -->
+    <div class="col-sm-6 col-xl-3">
+        <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small fw-semibold text-uppercase">Tiền đang cho vay</span>
+                <span class="p-2 bg-primary bg-opacity-10 text-primary rounded-3"><i class="bi bi-wallet2 fs-5"></i></span>
+            </div>
+            <h4 class="fw-bold text-dark mb-1">@Model.TongTienChoVay.ToString("N0") đ</h4>
+            <div class="small text-muted">
+                <span class="badge badge-status-dangcam">@Model.SoHopDongDangCam HĐ đang cầm</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tổng lãi đã thu -->
+    <div class="col-sm-6 col-xl-3">
+        <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small fw-semibold text-uppercase">Tiền lãi đã thu</span>
+                <span class="p-2 bg-success bg-opacity-10 text-success rounded-3"><i class="bi bi-piggy-bank fs-5"></i></span>
+            </div>
+            <h4 class="fw-bold text-success mb-1">@Model.TongLaiDaThu.ToString("N0") đ</h4>
+            <div class="small text-muted">Doanh thu thu lãi & gia hạn</div>
+        </div>
+    </div>
+
+    <!-- Hợp đồng sắp đến hạn -->
+    <div class="col-sm-6 col-xl-3">
+        <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small fw-semibold text-uppercase">Sắp đến hạn (≤ 3 ngày)</span>
+                <span class="p-2 bg-warning bg-opacity-10 text-warning rounded-3"><i class="bi bi-alarm fs-5"></i></span>
+            </div>
+            <h4 class="fw-bold text-warning mb-1">@Model.SoHopDongSapDenHan Hợp đồng</h4>
+            <div class="small text-muted">
+                <a asp-controller="HopDongCam" asp-action="Index" asp-route-sapDenHan="true" class="text-decoration-none">Nhắc khách đóng lãi &rarr;</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hợp đồng quá hạn -->
+    <div class="col-sm-6 col-xl-3">
+        <div class="card shadow-sm border-0 rounded-4 p-3 h-100">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <span class="text-muted small fw-semibold text-uppercase">Hợp đồng quá hạn</span>
+                <span class="p-2 bg-danger bg-opacity-10 text-danger rounded-3"><i class="bi bi-exclamation-octagon fs-5"></i></span>
+            </div>
+            <h4 class="fw-bold text-danger mb-1">@Model.SoHopDongQuaHan Hợp đồng</h4>
+            <div class="small text-muted">
+                <a asp-controller="HopDongCam" asp-action="Index" asp-route-trangThai="quá hạn" class="text-danger text-decoration-none fw-semibold">Cần xử lý thanh lý &rarr;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Biểu đồ dòng tiền Chart.js (Mục 5: Biểu đồ dòng tiền cho vay - thu về theo tháng) -->
+<div class="row mb-4">
+    <div class="col-lg-8 mb-3 mb-lg-0">
+        <div class="card shadow-sm border-0 rounded-4 h-100">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-graph-up text-primary me-2"></i>Biểu Đồ Dòng Tiền Theo Tháng</h5>
+                    <span class="badge bg-light text-dark border">6 tháng gần nhất</span>
+                </div>
+                <div style="height: 300px; position: relative;">
+                    <canvas id="cashflowChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Thống kê trạng thái hợp đồng (Doughnut chart / Tóm tắt) -->
+    <div class="col-lg-4">
+        <div class="card shadow-sm border-0 rounded-4 h-100">
+            <div class="card-body p-4 d-flex flex-column">
+                <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-pie-chart text-primary me-2"></i>Cơ Cấu Hợp Đồng</h5>
+                <div class="flex-grow-1 d-flex align-items-center justify-content-center" style="max-height: 220px;">
+                    <canvas id="statusChart"></canvas>
+                </div>
+                <div class="mt-3 pt-3 border-top small text-muted d-flex justify-content-between">
+                    <span>Tổng khách hàng: <strong>@Model.TongSoKhachHang</strong></span>
+                    <span>Tài sản thanh lý: <strong>@Model.SoHopDongThanhLy</strong></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hai bảng: Hợp đồng sắp đến hạn & Hợp đồng quá hạn -->
+<div class="row g-3 mb-4">
+    <!-- Hợp đồng sắp đến hạn -->
+    <div class="col-lg-6">
+        <div class="card shadow-sm border-0 rounded-4 h-100">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="fw-bold mb-0 text-dark"><i class="bi bi-alarm text-warning me-2"></i>Hợp Đồng Sắp Đến Hạn Chuộc</h6>
+                    <a asp-controller="HopDongCam" asp-action="Index" asp-route-sapDenHan="true" class="small text-primary text-decoration-none">Xem tất cả</a>
+                </div>
+                @if (!Model.HopDongSapDenHanList.Any())
+                {
+                    <div class="text-center py-4 text-muted small">Không có hợp đồng nào sắp đến hạn trong 3 ngày tới.</div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Mã HĐ</th>
+                                    <th>Khách hàng</th>
+                                    <th>Tiền cầm</th>
+                                    <th>Hạn chuộc</th>
+                                    <th class="text-end">Thu lãi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var hd in Model.HopDongSapDenHanList)
+                                {
+                                    <tr>
+                                        <td class="fw-bold"><a asp-controller="HopDongCam" asp-action="Details" asp-route-id="@hd.MaHd">HD-@hd.MaHd</a></td>
+                                        <td>@hd.MaKhNavigation.HoTen</td>
+                                        <td class="fw-bold text-primary">@hd.TienCam.ToString("N0") đ</td>
+                                        <td><span class="badge badge-status-sapdenhan">@hd.HanChuoc.ToString("dd/MM/yyyy")</span></td>
+                                        <td class="text-end">
+                                            <a asp-controller="GiaoDich" asp-action="Create" asp-route-maHd="@hd.MaHd" class="btn btn-sm btn-outline-success">
+                                                <i class="bi bi-cash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Hợp đồng quá hạn cần xử lý -->
+    <div class="col-lg-6">
+        <div class="card shadow-sm border-0 rounded-4 h-100">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h6 class="fw-bold mb-0 text-dark"><i class="bi bi-exclamation-triangle text-danger me-2"></i>Hợp Đồng Quá Hạn Cần Xử Lý</h6>
+                    <a asp-controller="HopDongCam" asp-action="Index" asp-route-trangThai="quá hạn" class="small text-danger text-decoration-none">Xem tất cả</a>
+                </div>
+                @if (!Model.HopDongQuaHanList.Any())
+                {
+                    <div class="text-center py-4 text-muted small">Tuyệt vời! Không có hợp đồng nào bị quá hạn.</div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-sm table-hover align-middle mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Mã HĐ</th>
+                                    <th>Khách hàng</th>
+                                    <th>Tiền cầm</th>
+                                    <th>Hạn chuộc</th>
+                                    <th class="text-end">Xử lý</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var hd in Model.HopDongQuaHanList)
+                                {
+                                    <tr>
+                                        <td class="fw-bold"><a asp-controller="HopDongCam" asp-action="Details" asp-route-id="@hd.MaHd">HD-@hd.MaHd</a></td>
+                                        <td>@hd.MaKhNavigation.HoTen</td>
+                                        <td class="fw-bold text-danger">@hd.TienCam.ToString("N0") đ</td>
+                                        <td><span class="badge badge-status-quahan">@hd.HanChuoc.ToString("dd/MM/yyyy")</span></td>
+                                        <td class="text-end">
+                                            <a asp-controller="HopDongCam" asp-action="Details" asp-route-id="@hd.MaHd" class="btn btn-sm btn-outline-primary">
+                                                Chi tiết
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+</div>
+
+<!-- Showcase Hình Ảnh Kho Tài Sản Cầm Cố Thực Tế -->
+@{
+    var featuredAssets = ViewBag.FeaturedAssets as List<QLCamDo_Nhom4_LopK24CNT2.Models.TaiSan> ?? new();
+}
+@if (featuredAssets.Any())
+{
+    <div class="card shadow-sm border-0 rounded-4 mb-4">
+        <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div>
+                    <h5 class="fw-bold mb-1 text-dark"><i class="bi bi-images text-primary me-2"></i>Kho Hình Ảnh Tài Sản Cầm Cố Thực Tế</h5>
+                    <small class="text-muted">Các tài sản giá trị cao (xe máy, điện thoại, laptop, vàng bạc) đang bảo quản tại cửa hàng</small>
+                </div>
+                <div class="d-flex gap-2">
+                    <a asp-controller="TaiSan" asp-action="ThanhLy" class="btn btn-sm btn-warning text-dark fw-bold">
+                        <i class="bi bi-tag-fill me-1"></i>Kho thanh lý
+                    </a>
+                    <a asp-controller="TaiSan" asp-action="Index" class="btn btn-sm btn-outline-primary">
+                        Xem tất cả tài sản &rarr;
+                    </a>
+                </div>
+            </div>
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-6 g-3">
+                @foreach (var ast in featuredAssets)
+                {
+                    var img = ast.AnhTaiSan?.Split(';', StringSplitOptions.RemoveEmptyEntries).FirstOrDefault() ?? "/uploads/taisan/XeMay.jpg";
+                    <div class="col">
+                        <div class="card h-100 border rounded-3 overflow-hidden shadow-sm product-card">
+                            <div style="height: 120px; overflow: hidden; background: #0f172a;">
+                                <img src="@img" class="w-100 h-100" style="object-fit: cover;" alt="@ast.TenTaiSan" />
+                            </div>
+                            <div class="p-2 d-flex flex-column justify-content-between flex-grow-1">
+                                <div>
+                                    <span class="badge bg-light text-dark border extra-small" style="font-size: 0.65rem;">@ast.MaLoaiNavigation?.TenLoai</span>
+                                    <div class="fw-bold text-dark text-truncate small mt-1" title="@ast.TenTaiSan">@ast.TenTaiSan</div>
+                                </div>
+                                <div class="mt-2 pt-1 border-top d-flex justify-content-between align-items-center">
+                                    <small class="text-primary fw-bold" style="font-size: 0.75rem;">@((ast.GiaTriDinhGia ?? 0).ToString("N0")) đ</small>
+                                    <a asp-controller="TaiSan" asp-action="Details" asp-route-id="@ast.MaTs" class="btn btn-xs btn-outline-secondary p-1" style="font-size: 0.65rem;" title="Chi tiết">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Nhật ký Audit Log (Yêu cầu: "ghi log mọi thao tác sửa tiền") -->
+@if (User.IsInRole("Chủ cửa hàng"))
+{
+    <div class="card shadow-sm border-0 rounded-4">
+        <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="fw-bold mb-0 text-dark"><i class="bi bi-journal-text text-secondary me-2"></i>Nhật Ký Bảo Mật & Sửa Tiền (Audit Log)</h6>
+                <span class="badge bg-light text-dark border">Bảo mật cao</span>
+            </div>
+            <div class="bg-dark text-light p-3 rounded-3 font-monospace small" style="max-height: 180px; overflow-y: auto;">
+                @if (!recentAuditLogs.Any())
+                {
+                    <div class="text-secondary italic">Chưa có bản ghi nhật ký nào.</div>
+                }
+                else
+                {
+                    @foreach (var log in recentAuditLogs)
+                    {
+                        <div class="mb-1 text-light">@log</div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Dữ liệu biểu đồ dòng tiền
+        const labels = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ChartLabels));
+        const dataChoVay = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ChartTienChoVay));
+        const dataThuLai = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ChartLaiThuVe));
+
+        const ctx1 = document.getElementById('cashflowChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Tiền cho vay (VNĐ)',
+                        data: dataChoVay,
+                        backgroundColor: 'rgba(37, 99, 235, 0.7)',
+                        borderRadius: 6
+                    },
+                    {
+                        label: 'Lãi & phí thu về (VNĐ)',
+                        data: dataThuLai,
+                        backgroundColor: 'rgba(22, 163, 74, 0.7)',
+                        borderRadius: 6
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return (value / 1000000).toFixed(0) + ' Tr';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Biểu đồ cơ cấu hợp đồng (Doughnut)
+        const ctx2 = document.getElementById('statusChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['Đang cầm', 'Sắp đến hạn', 'Quá hạn', 'Thanh lý'],
+                datasets: [{
+                    data: [
+                        @Model.SoHopDongDangCam,
+                        @Model.SoHopDongSapDenHan,
+                        @Model.SoHopDongQuaHan,
+                        @Model.SoHopDongThanhLy
+                    ],
+                    backgroundColor: ['#0284c7', '#ea580c', '#dc2626', '#9333ea']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+}

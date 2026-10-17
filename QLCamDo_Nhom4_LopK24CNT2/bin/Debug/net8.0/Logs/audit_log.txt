@@ -1,0 +1,18 @@
+[2026-10-09 12:21:36] USER: admin | ACTION: Đăng nhập | DETAILS: Người dùng [admin] đăng nhập vai trò [Chủ cửa hàng]
+[2026-10-09 12:41:03] USER: admin | ACTION: Đăng nhập | DETAILS: Người dùng [admin] đăng nhập vai trò [Chủ cửa hàng]
+[2026-10-09 12:47:25] USER: admin | ACTION: Đăng nhập | DETAILS: Người dùng [admin] đăng nhập vai trò [Chủ cửa hàng]
+[2026-10-09 12:48:50] USER: admin | ACTION: Đăng xuất | DETAILS: Người dùng đăng xuất hệ thống
+[2026-10-09 12:49:01] USER: nhanvien | ACTION: Đăng nhập | DETAILS: Người dùng [nhanvien] đăng nhập vai trò [Nhân viên]
+[2026-10-09 12:49:29] USER: nhanvien | ACTION: Đăng xuất | DETAILS: Người dùng đăng xuất hệ thống
+[2026-10-09 12:49:48] USER: khachhang1 | ACTION: Đăng nhập | DETAILS: Người dùng [khachhang1] đăng nhập vai trò [Khách hàng]
+[2026-10-09 19:48:34] USER: TanVuX | ACTION: Đăng nhập | DETAILS: Người dùng [TanVuX] đăng nhập vai trò [Khách hàng]
+[2026-10-09 19:48:56] USER: TanVuX | ACTION: Đăng xuất | DETAILS: Người dùng đăng xuất hệ thống
+[2026-10-09 19:49:08] USER: admin | ACTION: Đăng nhập | DETAILS: Người dùng [admin] đăng nhập vai trò [Chủ cửa hàng]
+[2026-10-09 20:01:56] USER: admin | ACTION: Đăng xuất | DETAILS: Người dùng đăng xuất hệ thống
+[2026-10-09 20:02:08] USER: nhanvien | ACTION: Đăng nhập | DETAILS: Người dùng [nhanvien] đăng nhập vai trò [Nhân viên]
+[2026-10-09 20:02:38] USER: nhanvien | ACTION: Đăng xuất | DETAILS: Người dùng đăng xuất hệ thống
+[2026-10-09 20:08:58] USER: khachhang1 | ACTION: Đăng nhập | DETAILS: Người dùng [khachhang1] đăng nhập vai trò [Khách hàng]
+[2026-10-13 10:03:07] USER: admin | ACTION: Đăng nhập | DETAILS: Người dùng [admin] đăng nhập vai trò [Chủ cửa hàng]
+[2026-10-13 21:11:40] USER: admin | ACTION: Đăng nhập | DETAILS: Người dùng [admin] đăng nhập vai trò [Chủ cửa hàng]
+[2026-10-14 00:02:03] USER: admin | ACTION: Đăng nhập | DETAILS: Người dùng [admin] đăng nhập vai trò [Chủ cửa hàng]
+[2026-10-16 16:14:56] USER: admin | ACTION: Đăng nhập | DETAILS: Người dùng [admin] đăng nhập vai trò [Chủ cửa hàng]

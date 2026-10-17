@@ -1,0 +1,146 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.HopDongCam
+
+@{
+    Layout = null;
+    var taiSan = Model.TaiSans.FirstOrDefault();
+    var soNgay = (Model.HanChuoc.DayNumber - Model.NgayCam.DayNumber);
+    var tienLaiUocTinh = Math.Round(Model.TienCam * (Model.LaiSuat / 100m) * soNgay, 0);
+}
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hợp Đồng Cầm Đồ #HD-@Model.MaHd - @Model.MaKhNavigation.HoTen</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            color: #000;
+            background: #fff;
+            padding: 20px;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .contract-box {
+            max-width: 800px;
+            margin: auto;
+            border: 2px solid #333;
+            padding: 30px;
+        }
+        .header-title {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .dots {
+            border-bottom: 1px dotted #555;
+            flex-grow: 1;
+        }
+        @@media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                padding: 0;
+            }
+            .contract-box {
+                border: none;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="no-print text-center mb-4">
+        <button onclick="window.print()" class="btn btn-primary px-4 py-2 fw-bold">
+            🖨️ In Hợp Đồng (Hoặc Lưu PDF)
+        </button>
+        <button onclick="window.close()" class="btn btn-secondary px-3 py-2 ms-2">
+            Đóng cửa sổ
+        </button>
+    </div>
+
+    <div class="contract-box">
+        <div class="row text-center mb-3">
+            <div class="col-12">
+                <h5 class="fw-bold mb-0">CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM</h5>
+                <p class="mb-0">Độc lập - Tự do - Hạnh phúc</p>
+                <p>---o0o---</p>
+                <h3 class="header-title mt-2">HỢP ĐỒNG CẦM CỐ TÀI SẢN</h3>
+                <p class="fst-italic">Số HĐ: HD-@Model.MaHd / QLCD-2026</p>
+            </div>
+        </div>
+
+        <p class="fst-italic text-end">Hôm nay, ngày @Model.NgayCam.Day tháng @Model.NgayCam.Month năm @Model.NgayCam.Year, hai bên gồm có:</p>
+
+        <h6 class="fw-bold text-uppercase">BÊN A (BÊN NHẬN CẦM CỐ): CỬA HÀNG CẦM ĐỒ C</h6>
+        <ul>
+            <li>Đại diện: <strong>Cửa hàng trưởng</strong></li>
+            <li>Địa chỉ: <strong>Số 123 Đường Cầm Đồ, TP. Hà Nội</strong></li>
+            <li>Điện thoại hỗ trợ: <strong>1900 6868</strong></li>
+        </ul>
+
+        <h6 class="fw-bold text-uppercase mt-3">BÊN B (BÊN CẦM CỐ):</h6>
+        <ul>
+            <li>Họ và tên khách hàng: <strong>@Model.MaKhNavigation.HoTen</strong></li>
+            <li>Số CCCD: <strong>@Model.MaKhNavigation.SoCccd</strong></li>
+            <li>Số điện thoại: <strong>@Model.MaKhNavigation.SoDienThoai</strong></li>
+            <li>Địa chỉ thường trú: <strong>@(Model.MaKhNavigation.DiaChi ?? "Chưa có địa chỉ")</strong></li>
+        </ul>
+
+        <h6 class="fw-bold text-uppercase mt-3">ĐIỀU 1: TÀI SẢN CẦM CỐ & ĐỊNH GIÁ</h6>
+        <table class="table table-bordered mb-2">
+            <thead class="text-center">
+                <tr>
+                    <th>Tên tài sản</th>
+                    <th>Loại tài sản</th>
+                    <th>Giá trị định giá</th>
+                    <th>Tình trạng thực tế</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (taiSan != null)
+                {
+                    <tr>
+                        <td class="fw-bold">@taiSan.TenTaiSan</td>
+                        <td>@taiSan.MaLoaiNavigation?.TenLoai</td>
+                        <td class="text-end fw-bold">@((taiSan.GiaTriDinhGia ?? 0).ToString("N0")) VNĐ</td>
+                        <td>@Html.Raw(taiSan.MoTaTinhTrang ?? "Nguyên vẹn")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <h6 class="fw-bold text-uppercase mt-3">ĐIỀU 2: SỐ TIỀN VAY, LÃI SUẤT & THỜI HẠN</h6>
+        <ul>
+            <li>Số tiền cầm cố: <strong>@Model.TienCam.ToString("N0") VNĐ</strong> (đảm bảo ≤ 80% giá trị định giá).</li>
+            <li>Lãi suất thỏa thuận: <strong>@Model.LaiSuat%/ngày</strong> (tương đương ~@((Model.LaiSuat * 30).ToString("0.0"))%/tháng).</li>
+            <li>Thời hạn cầm cố: từ ngày <strong>@Model.NgayCam.ToString("dd/MM/yyyy")</strong> đến ngày <strong>@Model.HanChuoc.ToString("dd/MM/yyyy")</strong> (tổng cộng <strong>@soNgay ngày</strong>).</li>
+            <li>Tiền lãi dự tính trọn kỳ: <strong>@tienLaiUocTinh.ToString("N0") VNĐ</strong>.</li>
+        </ul>
+
+        <h6 class="fw-bold text-uppercase mt-3">ĐIỀU 3: ĐIỀU KHOẢN VÀ CAM KẾT</h6>
+        <p>1. Bên B cam kết tài sản cầm cố thuộc quyền sở hữu hợp pháp của Bên B, không tranh chấp, không phải tài sản trộm cắp vi phạm pháp luật.</p>
+        <p>2. Bên A có trách nhiệm niêm phong, bảo quản an toàn tài sản trong suốt thời gian cầm cố.</p>
+        <p>3. Khi đến hạn chuộc, Bên B phải thanh toán đầy đủ gốc và lãi để nhận lại tài sản.</p>
+        <p>4. Nếu quá hạn 30 ngày kể từ ngày hết hạn chuộc mà Bên B không đóng lãi hoặc chuộc đồ, Bên A có toàn quyền thanh lý tài sản để thu hồi vốn theo quy định.</p>
+
+        <div class="row text-center mt-5">
+            <div class="col-6">
+                <h6 class="fw-bold text-uppercase">ĐẠI DIỆN BÊN A</h6>
+                <p class="fst-italic text-muted small">(Ký, ghi rõ họ tên và đóng dấu)</p>
+                <div style="height: 70px;"></div>
+                <p class="fw-bold">Cửa hàng Cầm đồ C</p>
+            </div>
+            <div class="col-6">
+                <h6 class="fw-bold text-uppercase">ĐẠI DIỆN BÊN B</h6>
+                <p class="fst-italic text-muted small">(Ký và ghi rõ họ tên)</p>
+                <div style="height: 70px;"></div>
+                <p class="fw-bold">@Model.MaKhNavigation.HoTen</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.HopDongCam
+
+@{
+    ViewData["Title"] = "Chi tiết hợp đồng HD-" + Model.MaHd;
+    Layout = "_Layout";
+
+    var today = DateOnly.FromDateTime(DateTime.Now);
+    var isSapDenHan = Model.TrangThai == "đang cầm" && Model.HanChuoc >= today && Model.HanChuoc <= today.AddDays(3);
+    var isQuaHan = (Model.TrangThai == "quá hạn") || (Model.TrangThai == "đang cầm" && Model.HanChuoc < today);
+
+    int soNgayCam = ViewBag.SoNgayCam;
+    int soNgayThucTe = ViewBag.SoNgayThucTe;
+    decimal tienLaiDuKien = ViewBag.TienLaiDuKien;
+    decimal tienLaiTamTinh = ViewBag.TienLaiTamTinh;
+    decimal tongTienDaDong = ViewBag.TongTienDaDong;
+    decimal tienLaiConLai = ViewBag.TienLaiConLai;
+    decimal tongTienDeChuoc = ViewBag.TongTienDeChuoc;
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+    <div>
+        <div class="d-flex align-items-center gap-2 mb-1">
+            <h3 class="fw-bold mb-0">Hợp Đồng Cầm Đồ HD-@Model.MaHd</h3>
+            @if (Model.TrangThai == "đang cầm")
+            {
+                if (isSapDenHan)
+                {
+                    <span class="badge badge-status-sapdenhan fs-6"><i class="bi bi-alarm me-1"></i>Sắp đến hạn</span>
+                }
+                else if (isQuaHan)
+                {
+                    <span class="badge badge-status-quahan fs-6"><i class="bi bi-exclamation-triangle me-1"></i>Quá hạn chuộc</span>
+                }
+                else
+                {
+                    <span class="badge badge-status-dangcam fs-6"><i class="bi bi-check2 me-1"></i>Đang cầm cố</span>
+                }
+            }
+            else if (Model.TrangThai == "quá hạn")
+            {
+                <span class="badge badge-status-quahan fs-6"><i class="bi bi-exclamation-triangle me-1"></i>Quá hạn</span>
+            }
+            else if (Model.TrangThai == "thanh lý")
+            {
+                <span class="badge badge-status-thanhly fs-6"><i class="bi bi-tag me-1"></i>Tài sản thanh lý</span>
+            }
+            else
+            {
+                <span class="badge badge-status-dachuoc fs-6"><i class="bi bi-check-all me-1"></i>Đã chuộc đồ</span>
+            }
+        </div>
+        <p class="text-muted small mb-0">Ngày lập: @Model.NgayCam.ToString("dd/MM/yyyy") - Hạn chuộc: @Model.HanChuoc.ToString("dd/MM/yyyy")</p>
+    </div>
+
+    <div class="d-flex gap-2">
+        <a asp-action="InHopDong" asp-route-id="@Model.MaHd" target="_blank" class="btn btn-outline-dark">
+            <i class="bi bi-printer me-1"></i>In hợp đồng
+        </a>
+
+        @if (!User.IsInRole("Khách hàng") && Model.TrangThai != "đã chuộc")
+        {
+            <a asp-controller="GiaoDich" asp-action="Create" asp-route-maHd="@Model.MaHd" asp-route-loaiGd="đóng lãi" class="btn btn-success">
+                <i class="bi bi-cash-stack me-1"></i>Thu lãi / Gia hạn
+            </a>
+            <a asp-controller="GiaoDich" asp-action="Create" asp-route-maHd="@Model.MaHd" asp-route-loaiGd="chuộc" class="btn btn-primary">
+                <i class="bi bi-box-arrow-right me-1"></i>Chuộc đồ
+            </a>
+        }
+
+        @if (User.IsInRole("Chủ cửa hàng") && isQuaHan && Model.TrangThai != "thanh lý")
+        {
+            <form asp-action="DuyetThanhLy" asp-route-id="@Model.MaHd" method="post" class="d-inline" onsubmit="return confirm('Bạn có chắc chắn muốn duyệt chuyển tài sản này sang danh sách thanh lý không?');">
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-warning text-dark">
+                    <i class="bi bi-tag me-1"></i>Duyệt thanh lý
+                </button>
+            </form>
+        }
+    </div>
+</div>
+
+<!-- Thẻ tính tiền lãi tự động theo số ngày -->
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 rounded-4 p-3 bg-white h-100">
+            <div class="text-muted small fw-semibold">SỐ TIỀN CẦM (GỐC)</div>
+            <div class="fs-4 fw-bold text-primary mt-1">@Model.TienCam.ToString("N0") VNĐ</div>
+            <div class="small text-muted mt-2">Lãi suất: <span class="badge bg-light text-dark border">@Model.LaiSuat%/ngày</span></div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 rounded-4 p-3 bg-white h-100">
+            <div class="text-muted small fw-semibold">LÃI TẠM TÍNH HÔM NAY</div>
+            <div class="fs-4 fw-bold text-danger mt-1">@tienLaiTamTinh.ToString("N0") VNĐ</div>
+            <div class="small text-muted mt-2">Tính theo @soNgayThucTe ngày thực tế</div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 rounded-4 p-3 bg-white h-100">
+            <div class="text-muted small fw-semibold">LÃI ĐÃ THANH TOÁN</div>
+            <div class="fs-4 fw-bold text-success mt-1">@tongTienDaDong.ToString("N0") VNĐ</div>
+            <div class="small text-muted mt-2">Còn nợ lãi: <span class="fw-bold text-danger">@tienLaiConLai.ToString("N0") VNĐ</span></div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm border-0 rounded-4 p-3 bg-primary bg-opacity-10 border-primary border-opacity-25 h-100">
+            <div class="text-primary small fw-semibold">TỔNG TIỀN CHUỘC ĐỒ</div>
+            <div class="fs-4 fw-bold text-dark mt-1">@tongTienDeChuoc.ToString("N0") VNĐ</div>
+            <div class="small text-secondary mt-2">Gốc + Lãi nợ đến ngày @today.ToString("dd/MM/yyyy")</div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Cột trái: Thông tin khách hàng & Tài sản -->
+    <div class="col-lg-6 mb-4">
+        <!-- Khách hàng -->
+        <div class="card shadow-sm border-0 rounded-4 mb-4">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-person text-primary me-2"></i>Khách hàng cầm đồ</h5>
+                    <a asp-controller="KhachHang" asp-action="Details" asp-route-id="@Model.MaKh" class="btn btn-sm btn-outline-primary">Hồ sơ khách</a>
+                </div>
+                <hr />
+                <div class="row">
+                    <div class="col-6 mb-2">
+                        <small class="text-muted d-block">Họ và tên</small>
+                        <span class="fw-bold">@Model.MaKhNavigation.HoTen</span>
+                    </div>
+                    <div class="col-6 mb-2">
+                        <small class="text-muted d-block">Số CCCD (12 số)</small>
+                        <span class="fw-bold font-monospace">@Model.MaKhNavigation.SoCccd</span>
+                    </div>
+                    <div class="col-6 mb-2">
+                        <small class="text-muted d-block">Số điện thoại</small>
+                        <span>@Model.MaKhNavigation.SoDienThoai</span>
+                    </div>
+                    <div class="col-6 mb-2">
+                        <small class="text-muted d-block">Địa chỉ</small>
+                        <span>@(Model.MaKhNavigation.DiaChi ?? "Chưa có địa chỉ")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tài sản cầm cố -->
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-4">
+                <h5 class="fw-bold mb-3 text-dark"><i class="bi bi-box-seam text-primary me-2"></i>Tài sản cầm cố</h5>
+                <hr />
+                @if (Model.TaiSans.Any())
+                {
+                    @foreach (var ts in Model.TaiSans)
+                    {
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <h6 class="fw-bold mb-1">@ts.TenTaiSan</h6>
+                                <span class="badge bg-light text-dark border">@ts.MaLoaiNavigation?.TenLoai</span>
+                            </div>
+                            <div class="small text-muted mb-2">
+                                Giá trị định giá: <strong class="text-dark">@((ts.GiaTriDinhGia ?? 0).ToString("N0")) VNĐ</strong>
+                            </div>
+                            @if (!string.IsNullOrEmpty(ts.MoTaTinhTrang))
+                            {
+                                <div class="p-3 bg-light rounded-3 small mb-3">
+                                    <strong>Mô tả tình trạng:</strong>
+                                    <div>@Html.Raw(ts.MoTaTinhTrang)</div>
+                                </div>
+                            }
+
+                            <!-- Ảnh tài sản lớn thực tế -->
+                            @if (!string.IsNullOrEmpty(ts.AnhTaiSan))
+                            {
+                                var images = ts.AnhTaiSan.Split(';', StringSplitOptions.RemoveEmptyEntries);
+                                var mainImg = images.FirstOrDefault();
+                                <div class="mt-3">
+                                    <div class="asset-img-container mb-2" style="height: 250px;">
+                                        <img src="@mainImg" alt="@ts.TenTaiSan" class="rounded-3 shadow-sm" />
+                                    </div>
+                                    @if (images.Length > 1)
+                                    {
+                                        <div class="d-flex flex-wrap gap-2 mt-2">
+                                            @foreach (var img in images)
+                                            {
+                                                <a href="@img" target="_blank">
+                                                    <img src="@img" class="asset-thumbnail-sm" alt="Ảnh phụ" />
+                                                </a>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            }
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p class="text-muted">Chưa có thông tin tài sản.</p>
+                }
+            </div>
+        </div>
+    </div>
+
+    <!-- Cột phải: Lịch sử Giao dịch & Thu lãi -->
+    <div class="col-lg-6 mb-4">
+        <div class="card shadow-sm border-0 rounded-4">
+            <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h5 class="fw-bold mb-0 text-dark"><i class="bi bi-clock-history text-primary me-2"></i>Lịch sử Giao Dịch & Đóng Lãi</h5>
+                    @if (!User.IsInRole("Khách hàng") && Model.TrangThai != "đã chuộc")
+                    {
+                        <a asp-controller="GiaoDich" asp-action="Create" asp-route-maHd="@Model.MaHd" class="btn btn-sm btn-primary">
+                            <i class="bi bi-plus-lg me-1"></i>Lập giao dịch
+                        </a>
+                    }
+                </div>
+                <hr />
+
+                @if (!Model.GiaoDiches.Any())
+                {
+                    <div class="text-center py-4 text-muted">
+                        <i class="bi bi-receipt fs-2 d-block mb-2"></i>
+                        Chưa có giao dịch phát sinh nào cho hợp đồng này.
+                    </div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Mã GD</th>
+                                    <th>Loại giao dịch</th>
+                                    <th>Thời gian</th>
+                                    <th>Số tiền (VNĐ)</th>
+                                    <th>Người thu</th>
+                                    <th class="text-end">Biên lai</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var gd in Model.GiaoDiches)
+                                {
+                                    <tr>
+                                        <td class="fw-bold">GD-@gd.MaGd</td>
+                                        <td>
+                                            @if (gd.LoaiGd == "chuộc")
+                                            {
+                                                <span class="badge bg-success">Tất toán chuộc</span>
+                                            }
+                                            else if (gd.LoaiGd == "gia hạn")
+                                            {
+                                                <span class="badge bg-info text-dark">Gia hạn kỳ</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge bg-primary">Đóng tiền lãi</span>
+                                            }
+                                        </td>
+                                        <td><small>@gd.NgayGd.ToString("dd/MM/yyyy HH:mm")</small></td>
+                                        <td class="fw-bold text-dark">@gd.SoTien.ToString("N0") đ</td>
+                                        <td><small class="text-muted">@gd.NhanVienThu</small></td>
+                                        <td class="text-end">
+                                            <a asp-controller="GiaoDich" asp-action="InBienNhan" asp-route-id="@gd.MaGd" target="_blank" class="btn btn-sm btn-outline-secondary" title="In biên nhận">
+                                                <i class="bi bi-printer"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="d-flex gap-2 mt-4">
+            @if (User.IsInRole("Chủ cửa hàng") || User.IsInRole("Nhân viên"))
+            {
+                <a asp-action="Edit" asp-route-id="@Model.MaHd" class="btn btn-warning"><i class="bi bi-pencil me-1"></i>Sửa hợp đồng</a>
+                @if (User.IsInRole("Chủ cửa hàng"))
+                {
+                    <a asp-action="Delete" asp-route-id="@Model.MaHd" class="btn btn-outline-danger"><i class="bi bi-trash me-1"></i>Xóa</a>
+                }
+            }
+            <a asp-action="Index" class="btn btn-light">Về danh sách hợp đồng</a>
+        </div>
+    </div>
+</div>

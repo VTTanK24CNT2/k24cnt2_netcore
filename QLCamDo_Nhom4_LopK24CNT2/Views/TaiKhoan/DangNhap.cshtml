@@ -1,0 +1,70 @@
+@model QLCamDo_Nhom4_LopK24CNT2.Models.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Đăng nhập hệ thống";
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center align-items-center mt-4">
+    <div class="col-md-5 col-lg-4">
+        <div class="card shadow-lg border-0 rounded-4">
+            <div class="card-body p-4 p-md-5">
+                <div class="text-center mb-4">
+                    <div class="p-3 bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex mb-3">
+                        <i class="bi bi-shield-lock fs-1"></i>
+                    </div>
+                    <h3 class="fw-bold text-dark">Đăng Nhập</h3>
+                    <p class="text-muted small">Hệ thống Quản lý Cầm đồ C</p>
+                </div>
+
+                <form asp-action="DangNhap" method="post">
+                    @Html.AntiForgeryToken()
+                    <input type="hidden" name="returnUrl" value="@ViewBag.ReturnUrl" />
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="TenDangNhap" class="form-label fw-semibold text-secondary small"></label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-person text-muted"></i></span>
+                            <input asp-for="TenDangNhap" class="form-control bg-light border-start-0" placeholder="Nhập tên đăng nhập" />
+                        </div>
+                        <span asp-validation-for="TenDangNhap" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="MatKhau" class="form-label fw-semibold text-secondary small"></label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-key text-muted"></i></span>
+                            <input asp-for="MatKhau" type="password" class="form-control bg-light border-start-0" placeholder="Nhập mật khẩu" />
+                        </div>
+                        <span asp-validation-for="MatKhau" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4 d-flex justify-content-between align-items-center">
+                        <div class="form-check">
+                            <input asp-for="GhiNho" class="form-check-input" />
+                            <label asp-for="GhiNho" class="form-check-label small text-muted"></label>
+                        </div>
+                        <a asp-action="DangKy" class="small text-primary text-decoration-none">Khách hàng đăng ký</a>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2 rounded-3 fw-semibold">
+                        <i class="bi bi-box-arrow-in-right me-1"></i> Đăng nhập
+                    </button>
+                </form>
+
+                <div class="mt-4 p-3 bg-light rounded-3 text-center small text-muted">
+                    <p class="fw-bold mb-1 text-secondary">Tài khoản demo sẵn sàng:</p>
+                    <div><strong>admin</strong> / 123456 (Chủ cửa hàng)</div>
+                    <div><strong>nhanvien</strong> / 123456 (Nhân viên)</div>
+                    <div><strong>khachhang1</strong> / 123456 (Khách hàng)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
